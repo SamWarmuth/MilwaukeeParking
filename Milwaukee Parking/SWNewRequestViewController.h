@@ -1,5 +1,5 @@
 //
-//  SWViewController.h
+//  SWNewRequestViewController.h
 //  Milwaukee Parking
 //
 //  Created by Samuel Warmuth on 8/3/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SWViewController : UIViewController
+@interface SWNewRequestViewController : UIViewController
 
 @end

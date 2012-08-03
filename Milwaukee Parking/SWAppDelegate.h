@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (NSMutableArray *)cars;
+- (void)addCar:(NSDictionary *)car;
+
 @end

@@ -15,6 +15,19 @@
     // Override point for customization after application launch.
     return YES;
 }
+
+- (NSMutableArray *)cars
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return (NSMutableArray *)[defaults objectForKey:@"SWNightParkingCars"];
+}
+- (void)addCar:(NSDictionary *)car
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *cars = [defaults objectForKey:@"SWNightParkingCars"];
+    [cars addObject:car];
+    [defaults setObject:cars forKey:@"SWNightParkingCars"];
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
