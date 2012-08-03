@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationItem.title = @"hi!";
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated
