@@ -27,7 +27,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Park" id="VgG-wq-HRu">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="Rk2-dM-UoL">
+                        <barButtonItem key="leftBarButtonItem" title="History" id="Rk2-dM-UoL">
                             <connections>
                                 <segue destination="Vrf-h7-3fU" kind="push" id="bxR-ga-tPL"/>
                             </connections>
@@ -63,11 +63,11 @@
             </objects>
             <point key="canvasLocation" x="926" y="880"/>
         </scene>
-        <!--View Controller - New Vehicle-->
+        <!--New Car View Controller - New Vehicle-->
         <scene sceneID="oUL-PY-s1g">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frp-xA-TeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="tXt-ix-sey" sceneMemberID="viewController">
+                <viewController id="tXt-ix-sey" customClass="SWNewCarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRu-hT-oLm">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,7 +106,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D2r-tS-Uu3">
-                                <rect key="frame" x="228" y="93" width="72" height="36"/>
+                                <rect key="frame" x="180" y="93" width="120" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="WI">
@@ -116,6 +116,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedStateButton:" destination="tXt-ix-sey" eventType="touchUpInside" id="9R8-ph-wjL"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kDD-PT-qM8">
                                 <rect key="frame" x="20" y="152" width="280" height="30"/>
@@ -125,6 +128,9 @@
                                     <segment title="Truck"/>
                                     <segment title="Motorcycle"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changedVehicleType:" destination="tXt-ix-sey" eventType="valueChanged" id="8hy-sn-D3e"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text=" (optional)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BaP-gn-0ij">
                                 <rect key="frame" x="99" y="20" width="88" height="21"/>
@@ -143,6 +149,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="licensePlateField" destination="iqJ-Tv-oBF" id="TUh-L2-35K"/>
+                        <outlet property="nicknameField" destination="Lbd-g5-4oN" id="h9X-sX-9g0"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="954" y="-470"/>
@@ -232,43 +242,42 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Request Parking" id="VZa-O7-t0x"/>
+                    <navigationItem key="navigationItem" title="Request Parking" id="VZa-O7-t0x">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lmb-gd-CHP">
+                            <connections>
+                                <action selector="tappedCancelButton:" destination="2" id="tjX-WA-hka"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1558" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Request Completed View Controller - Request Granted-->
         <scene sceneID="1dF-ZM-6qm">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uV3-yD-6ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="kzY-9M-3fk" sceneMemberID="viewController">
+                <viewController id="kzY-9M-3fk" customClass="SWRequestCompletedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yVo-P3-hWU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Request Granted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="O2z-dK-jlG">
-                                <rect key="frame" x="20" y="20" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmation Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rev-N3-VSk">
-                                <rect key="frame" x="20" y="171" width="169" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmation Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rev-N3-VSk">
+                                <rect key="frame" x="20" y="114" width="169" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Vb1-IF-GPR">
-                                <rect key="frame" x="20" y="113" width="89" height="21"/>
+                                <rect key="frame" x="20" y="56" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2637281" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QEN-gR-MWc">
-                                <rect key="frame" x="203" y="171" width="97" height="21"/>
+                                <rect key="frame" x="203" y="114" width="97" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.89477257639999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -276,28 +285,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1680 N Cass St" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cv4-HO-FeF">
-                                <rect key="frame" x="117" y="113" width="183" height="21"/>
+                                <rect key="frame" x="117" y="56" width="183" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Vtp-Dt-xXI">
-                                <rect key="frame" x="20" y="142" width="89" height="21"/>
+                                <rect key="frame" x="20" y="85" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aug 1st, Aug 2nd" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fRO-dt-ka1">
-                                <rect key="frame" x="117" y="142" width="183" height="21"/>
+                                <rect key="frame" x="117" y="85" width="183" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="717-GA-ypH">
-                                <rect key="frame" x="20" y="352" width="280" height="44"/>
+                                <rect key="frame" x="20" y="186" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
@@ -307,11 +316,20 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedDoneButton:" destination="kzY-9M-3fk" eventType="touchUpInside" id="FIZ-aA-IXo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hP9-RG-tHf"/>
+                    <navigationItem key="navigationItem" title="Request Granted" id="hP9-RG-tHf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7fG-jT-qbt">
+                            <connections>
+                                <action selector="tappedDoneButton:" destination="kzY-9M-3fk" id="yen-xD-dL8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2074" y="127"/>
@@ -342,9 +360,30 @@
     <classes>
         <class className="SWChooseCarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SWChooseCarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SWNewCarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWNewCarViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changedVehicleType:"/>
+                <relationship kind="action" name="tappedStateButton:"/>
+                <relationship kind="outlet" name="licensePlateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nicknameField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="SWNewRequestViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SWNewRequestViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedCancelButton:"/>
+            </relationships>
+        </class>
+        <class className="SWRequestCompletedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRequestCompletedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedDoneButton:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

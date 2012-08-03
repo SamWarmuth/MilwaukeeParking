@@ -1,5 +1,5 @@
 //
-//  SWNewRequestViewController.h
+//  SWRequestCompletedViewController.h
 //  Milwaukee Parking
 //
 //  Created by Samuel Warmuth on 8/3/12.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SWNewRequestViewController : UIViewController
+@interface SWRequestCompletedViewController : UIViewController
 
-- (IBAction)tappedCancelButton:(id)sender;
+- (IBAction)tappedDoneButton:(id)sender;
 
 @end

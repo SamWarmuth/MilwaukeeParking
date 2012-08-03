@@ -25,6 +25,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *cars = [defaults objectForKey:@"SWNightParkingCars"];
+    if (!cars || cars == (id)[NSNull null]) cars = [NSMutableArray array];
     [cars addObject:car];
     [defaults setObject:cars forKey:@"SWNightParkingCars"];
 }

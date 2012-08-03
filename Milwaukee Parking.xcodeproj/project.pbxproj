@@ -25,6 +25,8 @@
 		8873599E15CC6E860087DD08 /* map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873599815CC6E860087DD08 /* map-marker@2x.png */; };
 		887359A115CC765A0087DD08 /* SWChooseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359A015CC765A0087DD08 /* SWChooseCarViewController.m */; };
 		887359A415CC76940087DD08 /* SWRequestHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */; };
+		887359AB15CC7D940087DD08 /* SWNewCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AA15CC7D930087DD08 /* SWNewCarViewController.m */; };
+		887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,10 @@
 		887359A015CC765A0087DD08 /* SWChooseCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChooseCarViewController.m; sourceTree = "<group>"; };
 		887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestHistoryViewController.h; sourceTree = "<group>"; };
 		887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestHistoryViewController.m; sourceTree = "<group>"; };
+		887359A915CC7D930087DD08 /* SWNewCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNewCarViewController.h; sourceTree = "<group>"; };
+		887359AA15CC7D930087DD08 /* SWNewCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNewCarViewController.m; sourceTree = "<group>"; };
+		887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestCompletedViewController.h; sourceTree = "<group>"; };
+		887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestCompletedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +114,12 @@
 				8873597E15CC6C8D0087DD08 /* MainStoryboard.storyboard */,
 				8873598915CC6CB10087DD08 /* SWNewRequestViewController.h */,
 				8873598A15CC6CB10087DD08 /* SWNewRequestViewController.m */,
+				887359A915CC7D930087DD08 /* SWNewCarViewController.h */,
+				887359AA15CC7D930087DD08 /* SWNewCarViewController.m */,
 				8873599F15CC765A0087DD08 /* SWChooseCarViewController.h */,
 				887359A015CC765A0087DD08 /* SWChooseCarViewController.m */,
+				887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */,
+				887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */,
 				887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */,
 				887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */,
 				8873599215CC6E7D0087DD08 /* Images */,
@@ -217,6 +227,8 @@
 				8873598B15CC6CB10087DD08 /* SWNewRequestViewController.m in Sources */,
 				887359A115CC765A0087DD08 /* SWChooseCarViewController.m in Sources */,
 				887359A415CC76940087DD08 /* SWRequestHistoryViewController.m in Sources */,
+				887359AB15CC7D940087DD08 /* SWNewCarViewController.m in Sources */,
+				887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
