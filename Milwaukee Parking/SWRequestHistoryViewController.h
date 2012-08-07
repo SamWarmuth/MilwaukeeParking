@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tv;
 
+
+- (IBAction)closeButtonTapped:(id)sender;
+
 @end

@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSMutableArray *cars;
 @property (nonatomic, strong) IBOutlet UITableView *tv;
 
+- (IBAction)editButtonPressed:(UIBarButtonItem *)sender;
+- (IBAction)newButtonPressed:(UIBarButtonItem *)sender;
+
 @end

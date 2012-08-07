@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCar.h"
+#import "SWNewRequestViewController.h"
 
 @interface SWNewCarViewController : UIViewController
 
-@property (nonatomic, strong) NSString *state, *vehicleType;
+@property (nonatomic, strong) SWCar *car;
+
 @property (nonatomic, strong) IBOutlet UITextField *nicknameField, *licensePlateField;
+@property (nonatomic, strong) IBOutlet UIButton *stateButton;
 
 - (IBAction)tappedStateButton:(id)sender;
-- (IBAction)changedVehicleType:(id)sender;
+- (IBAction)changedVehicleType:(UISegmentedControl *)sender;
+- (IBAction)tappedDoneButton:(id)sender;
 
 @end

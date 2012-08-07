@@ -11,8 +11,7 @@
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-- (NSMutableArray *)cars;
-- (void)addCar:(NSDictionary *)car;
+@property (strong, nonatomic) NSMutableArray *cars;
+- (void)saveCarsToDefaults;
 
 @end

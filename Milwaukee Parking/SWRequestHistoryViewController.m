@@ -35,6 +35,11 @@
     // Release any retained subviews of the main view.
 }
 
+- (IBAction)closeButtonTapped:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

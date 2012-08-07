@@ -7,28 +7,39 @@
 //
 
 #import "SWAppDelegate.h"
+#import "SWCar.h"
+#import "SWAddressMatcher.h"
 
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [self loadCars];
+    [SWAddressMatcher loadStreetsFromServer];
     return YES;
 }
 
-- (NSMutableArray *)cars
+- (void)saveCarsToDefaults
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return (NSMutableArray *)[defaults objectForKey:@"SWNightParkingCars"];
+    NSData *carData = [NSKeyedArchiver archivedDataWithRootObject:self.cars];
+    [defaults setObject:carData forKey:@"SWNightParkingCarData"];
+    [defaults synchronize];
 }
-- (void)addCar:(NSDictionary *)car
+
+- (void)loadCars
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *cars = [defaults objectForKey:@"SWNightParkingCars"];
-    if (!cars || cars == (id)[NSNull null]) cars = [NSMutableArray array];
-    [cars addObject:car];
-    [defaults setObject:cars forKey:@"SWNightParkingCars"];
+    NSData *carData = [defaults objectForKey:@"SWNightParkingCarData"];
+    if (!carData || carData == (id)[NSNull null]){
+        NSLog(@"no car data found.");
+        self.cars = [NSMutableArray array];
+    } else {
+        self.cars = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:carData];
+    }
 }
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
