@@ -43,11 +43,6 @@
     
 }
 
-- (IBAction)changedVehicleType:(UISegmentedControl *)sender
-{
-    NSArray *types = [NSArray arrayWithObjects:@"PC", @"TK", @"MC", nil];
-    self.car.vehicleType = [types objectAtIndex:sender.selectedSegmentIndex];
-}
 
 - (IBAction)tappedDoneButton:(id)sender
 {
@@ -58,13 +53,18 @@
     }
     SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    SWCar *car = [SWCar new];
-    car.licensePlateNumber = self.licensePlateField.text;
-    car.stateAbbreviation = [self.stateButton titleForState:UIControlStateNormal];
-    if (self.nicknameField.text.length != 0) car.nickname = self.nicknameField.text;
+    self.car = [SWCar new];
+    if (self.nicknameField.text.length != 0) self.car.nickname = self.nicknameField.text;
+
+    self.car.licensePlateNumber = self.licensePlateField.text;
+    self.car.stateAbbreviation = @"WI";
+            
         
+    NSArray *types = [NSArray arrayWithObjects:@"PC", @"TK", @"MC", nil];
+    self.car.vehicleType = [types objectAtIndex:self.vehicleTypeSegControl.selectedSegmentIndex];
+    
     @synchronized (appDelegate.cars) {
-        [appDelegate.cars addObject:car];
+        [appDelegate.cars addObject:self.car];
         [appDelegate saveCarsToDefaults];
     }
     [self performSegueWithIdentifier:@"SWNewCarToNewRequest" sender:self];

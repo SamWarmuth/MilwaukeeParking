@@ -8,6 +8,10 @@
 
 #import "SWNewRequestViewController.h"
 #import "SWAddressMatcher.h"
+#import "SWRequestCompletedViewController.h"
+#import "SWAppDelegate.h"
+#import "SVProgressHUD.h"
+
 
 @interface SWNewRequestViewController ()
 
@@ -91,6 +95,12 @@ bool userMovedMap;
         }
         
         NSDictionary *components = [SWAddressMatcher findMatchingStreetComponents:placemark.thoroughfare];
+        
+        if (!components){
+            self.addressLabel.text = @"Not a valid address.";
+            return;
+            
+        }
         NSString *singleNumberAddress = [[NSNumber numberWithInt:[placemark.subThoroughfare integerValue]] stringValue];
         NSString *addressString = [NSString stringWithFormat:@"%@ %@", singleNumberAddress, placemark.thoroughfare];
         
@@ -123,16 +133,34 @@ bool userMovedMap;
     
     [self.car.requests addObject:self.request];
     
+    //save basic request, in case we crash or fail to confirm.
+    SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate saveCarsToDefaults];
+    
+    [SVProgressHUD showWithStatus:@"Requesting Parking Permission"];
+    
     [self.request sendRequestWithCar:self.car andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
         if (error || !confirmationCode){
+            [SVProgressHUD dismissWithError:@"Error: Request could not be completed"];
             NSLog(@"Oh No! Error.");
             return;
         }
-        
+        [SVProgressHUD dismiss];
         NSLog(@"Done.");
+        //This request is now fully complete, save.
+        [appDelegate saveCarsToDefaults];
         [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
     }];
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SWNewRequestToRequestCompleted"]){
+        SWRequestCompletedViewController *destinationController = [segue destinationViewController];
+        destinationController.car = self.car;
+        destinationController.request = self.request;
+    }
 }
 
 - (void)viewDidUnload

@@ -11,10 +11,12 @@
 
 @interface SWRequest : NSObject
 
-@property (nonatomic, strong) NSString *houseNumber, *direction, *streetName, *suffix, *fullAddress, *confirmationNumber;
+@property (nonatomic, strong) NSString *houseNumber, *direction, *streetName, *suffix, *fullAddress, *district, *serverDate, *confirmationNumber;
 @property (nonatomic, strong) NSNumber *nightCount;
 
 
 - (void)sendRequestWithCar:(SWCar *)car andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed;
+
+- (void)sendConfirmationWithIntitialResponse:(NSString *)responseHTML withParams:(NSMutableDictionary *)parameters andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed;
 
 @end

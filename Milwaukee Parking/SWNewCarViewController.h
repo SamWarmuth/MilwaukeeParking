@@ -16,9 +16,10 @@
 
 @property (nonatomic, strong) IBOutlet UITextField *nicknameField, *licensePlateField;
 @property (nonatomic, strong) IBOutlet UIButton *stateButton;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *vehicleTypeSegControl;
+
 
 - (IBAction)tappedStateButton:(id)sender;
-- (IBAction)changedVehicleType:(UISegmentedControl *)sender;
 - (IBAction)tappedDoneButton:(id)sender;
 
 @end

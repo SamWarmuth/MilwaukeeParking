@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCar.h"
+#import "SWRequest.h"
+#import <MapKit/MapKit.h>
 
 @interface SWRequestCompletedViewController : UIViewController
+
+@property (nonatomic, strong) SWCar *car;
+@property (nonatomic, strong) SWRequest *request;
+
+@property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) IBOutlet UILabel *carNameLabel, *addressLabel, *dateLabel, *confirmationLabel;
 
 - (IBAction)tappedDoneButton:(id)sender;
 

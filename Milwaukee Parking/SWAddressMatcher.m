@@ -82,7 +82,7 @@
     
     streetName = [streetName uppercaseString];
     streetName = [streetName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
+    streetName = [streetName stringByReplacingOccurrencesOfString:@" AVE" withString:@" AV"];
     
     NSDictionary *match;
     

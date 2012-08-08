@@ -31,6 +31,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationItem.hidesBackButton = TRUE;
+    //@property (nonatomic, strong) IBOutlet UILabel *carNameLabel, *addressLabel, *dateLabel, *confirmationLabel;
+    if (self.car.nickname) self.carNameLabel.text = [NSString stringWithFormat:@"%@ (%@)", self.car.nickname, self.car.licensePlateNumber];
+    else self.carNameLabel.text = self.car.licensePlateNumber;
+    
+    self.addressLabel.text = self.request.fullAddress;
+    self.dateLabel.text = self.request.serverDate;
+    self.confirmationLabel.text = self.request.confirmationNumber;
+    
 }
 - (IBAction)tappedDoneButton:(id)sender
 {
