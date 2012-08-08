@@ -17,7 +17,7 @@
 @property (nonatomic, strong) SWRequest *request;
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
-@property (nonatomic, strong) IBOutlet UILabel *carNameLabel, *addressLabel, *dateLabel, *confirmationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *carNameLabel, *addressLabel, *dateLabel, *numNightsLabel, *confirmationLabel;
 
 - (IBAction)tappedDoneButton:(id)sender;
 

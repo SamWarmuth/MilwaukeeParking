@@ -37,6 +37,10 @@ bool userMovedMap;
     
     self.geocoder = [CLGeocoder new];
     self.request = [SWRequest new];
+    CLLocation *milwaukeeCenter = [[CLLocation alloc] initWithLatitude:43.05 longitude:-87.92];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(milwaukeeCenter.coordinate, 8000, 8000);
+    [self.mapView setRegion:region animated:NO];
+    [self updateAddress:milwaukeeCenter];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,9 +64,10 @@ bool userMovedMap;
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     if (userMovedMap) return;
+    if (userLocation.coordinate.latitude == 0.0) return;
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
-    [mapView setRegion:region animated:NO];
+    [mapView setRegion:region animated:YES];
     [self updateAddress:userLocation.location];
 
 }
@@ -98,8 +103,9 @@ bool userMovedMap;
         
         if (!components){
             self.addressLabel.text = @"Not a valid address.";
+            NSLog(@"ER %@", placemark.thoroughfare);
+
             return;
-            
         }
         NSString *singleNumberAddress = [[NSNumber numberWithInt:[placemark.subThoroughfare integerValue]] stringValue];
         NSString *addressString = [NSString stringWithFormat:@"%@ %@", singleNumberAddress, placemark.thoroughfare];
@@ -111,11 +117,19 @@ bool userMovedMap;
         self.request.streetName = [components objectForKey:@"street"];
         self.request.suffix = [components objectForKey:@"suffix"];
         self.request.fullAddress = addressString;
+        self.request.location = location;
     }];
 }
 
 - (IBAction)tappedCenterOnUser:(id)sender
 {
+    
+    if (!self.mapView.userLocation || self.mapView.userLocation.location.coordinate.latitude == 0.0){
+        [SVProgressHUD show];
+        [SVProgressHUD dismissWithError:@"Current location not available."];
+        return;
+    }
+    
     userMovedMap = FALSE;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 400, 400);
     [self.mapView setRegion:region animated:YES];
@@ -129,29 +143,63 @@ bool userMovedMap;
 
 - (IBAction)tappedRequestButton:(id)sender
 {
-    self.request.nightCount = [NSNumber numberWithInteger:self.nightCountSegControl.selectedSegmentIndex];
+    self.request.nightCount = [NSNumber numberWithInteger:self.nightCountSegControl.selectedSegmentIndex + 1];
     
-    [self.car.requests addObject:self.request];
+    NSString *nightPlural = @"nights";
+    if ([self.request.nightCount intValue] == 1) nightPlural = @"night";
     
-    //save basic request, in case we crash or fail to confirm.
-    SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate saveCarsToDefaults];
+    NSString *messageText = [NSString stringWithFormat:@"License plate '%@'\n%@\n %@ %@", self.car.licensePlateNumber, self.request.fullAddress, self.request.nightCount, nightPlural ];
+        
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Request Permission?"
+                                                        message:messageText
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Request", nil];
+    alertView.delegate = self;
+    alertView.tag = SWNewRequestAlertTag;
     
-    [SVProgressHUD showWithStatus:@"Requesting Parking Permission"];
+    //this is an ugly hack, but it makes the formatting nicer.
+    UILabel *alertViewLabel = (UILabel*)[[alertView subviews] objectAtIndex:1];
+    alertViewLabel.textAlignment = UITextAlignmentRight;
     
-    [self.request sendRequestWithCar:self.car andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
-        if (error || !confirmationCode){
-            [SVProgressHUD dismissWithError:@"Error: Request could not be completed"];
-            NSLog(@"Oh No! Error.");
-            return;
-        }
-        [SVProgressHUD dismiss];
-        NSLog(@"Done.");
-        //This request is now fully complete, save.
+    [alertView show];
+    
+    
+    
+
+    
+        
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex == buttonIndex) return;
+
+    if (alertView.tag == SWNewRequestAlertTag){
+        if (!self.car.requests || self.car.requests == (id)[NSNull null]) self.car.requests = [NSMutableArray new];
+        [self.car.requests addObject:self.request];
+        
+        //save basic request, in case we crash or fail to confirm.
+        SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate saveCarsToDefaults];
-        [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
-    }];
-    
+        
+        [SVProgressHUD showWithStatus:@"Requesting Parking Permission"];
+        
+        [self.request sendRequestWithCar:self.car andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
+            if (error || !confirmationCode){
+                [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\nMaybe you've already requested permission for tonight?" afterDelay:5.0];
+                NSLog(@"Oh No! Error.");
+            } else {
+                [SVProgressHUD dismiss];
+                NSLog(@"Done.");
+                //This request is now fully complete, save.
+                [appDelegate saveCarsToDefaults];
+                //[self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
+            }
+            
+        }];
+
+    } 
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

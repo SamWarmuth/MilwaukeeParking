@@ -24,6 +24,18 @@
 
 + (void)loadStreetsFromServer
 {
+    //first, load local copy for immediate use
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *streetData = [defaults objectForKey:@"SWNightParkingStreetData"];
+    SWAddressMatcher *sharedInstance = [self sharedInstance];
+    
+    if (!streetData || streetData == (id)[NSNull null]){
+        NSLog(@"No street data found.");
+    } else {
+        NSLog(@"Local street data loaded.");
+        sharedInstance.addresses = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:streetData];
+    }
+    
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/street_picker"]];
     
     [httpClient getPath:@"" parameters:nil success:^(AFHTTPRequestOperation *request, id rawResponseData) {
@@ -64,9 +76,15 @@
             
             [addresses addObject:components];
         }
-        NSLog(@"Done Loading.");
+        NSLog(@"Street data refreshed.");
         SWAddressMatcher *sharedInstance = [self sharedInstance];
         sharedInstance.addresses = addresses;
+        
+        //Save to defaults to be loaded at startup.
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *streetData = [NSKeyedArchiver archivedDataWithRootObject:sharedInstance.addresses];
+        [defaults setObject:streetData forKey:@"SWNightParkingStreetData"];
+        [defaults synchronize];
     } failure:^(AFHTTPRequestOperation *request, NSError *error) {
         NSLog(@"REQ: %@", request);
         NSLog(@"ERR: %@", error);
@@ -83,6 +101,8 @@
     streetName = [streetName uppercaseString];
     streetName = [streetName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     streetName = [streetName stringByReplacingOccurrencesOfString:@" AVE" withString:@" AV"];
+    streetName = [streetName stringByReplacingOccurrencesOfString:@" BLVD" withString:@" BL"];
+    streetName = [streetName stringByReplacingOccurrencesOfString:@" SAINT " withString:@" ST "];
     
     NSDictionary *match;
     

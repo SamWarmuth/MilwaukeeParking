@@ -56,6 +56,9 @@
 		88EB1EAE15D1C3E200C84263 /* redPinOrig.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EAB15D1C3E200C84263 /* redPinOrig.png */; };
 		88EB1EB015D1CC3F00C84263 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EAF15D1CC3E00C84263 /* icon@2x.png */; };
 		88EB1EB215D1CC4100C84263 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EB115D1CC4100C84263 /* icon.png */; };
+		88EB1EB415D2E89800C84263 /* parkingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EB315D2E89700C84263 /* parkingIcon.png */; };
+		88EB1EB615D2E89B00C84263 /* parkingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EB515D2E89B00C84263 /* parkingIcon@2x.png */; };
+		88EB1EBD15D2F57400C84263 /* SWCarHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1EBC15D2F57400C84263 /* SWCarHistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +138,10 @@
 		88EB1EAB15D1C3E200C84263 /* redPinOrig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPinOrig.png; sourceTree = "<group>"; };
 		88EB1EAF15D1CC3E00C84263 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		88EB1EB115D1CC4100C84263 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		88EB1EB315D2E89700C84263 /* parkingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parkingIcon.png; sourceTree = "<group>"; };
+		88EB1EB515D2E89B00C84263 /* parkingIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parkingIcon@2x.png"; sourceTree = "<group>"; };
+		88EB1EBB15D2F57400C84263 /* SWCarHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCarHistoryViewController.h; sourceTree = "<group>"; };
+		88EB1EBC15D2F57400C84263 /* SWCarHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCarHistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +186,8 @@
 		8873595D15CC6C8D0087DD08 = {
 			isa = PBXGroup;
 			children = (
+				88EB1EB515D2E89B00C84263 /* parkingIcon@2x.png */,
+				88EB1EB315D2E89700C84263 /* parkingIcon.png */,
 				88EB1EB115D1CC4100C84263 /* icon.png */,
 				88EB1EAF15D1CC3E00C84263 /* icon@2x.png */,
 				8873597215CC6C8D0087DD08 /* Milwaukee Parking */,
@@ -215,16 +224,9 @@
 				8873597B15CC6C8D0087DD08 /* SWAppDelegate.h */,
 				8873597C15CC6C8D0087DD08 /* SWAppDelegate.m */,
 				8873597E15CC6C8D0087DD08 /* MainStoryboard.storyboard */,
-				8873598915CC6CB10087DD08 /* SWNewRequestViewController.h */,
-				8873598A15CC6CB10087DD08 /* SWNewRequestViewController.m */,
-				887359A915CC7D930087DD08 /* SWNewCarViewController.h */,
-				887359AA15CC7D930087DD08 /* SWNewCarViewController.m */,
-				8873599F15CC765A0087DD08 /* SWChooseCarViewController.h */,
-				887359A015CC765A0087DD08 /* SWChooseCarViewController.m */,
-				887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */,
-				887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */,
-				887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */,
-				887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */,
+				88EB1EBA15D2EDD600C84263 /* Select Car */,
+				88EB1EB915D2EDC300C84263 /* New Request */,
+				88EB1EB715D2ED9F00C84263 /* History */,
 				88EB1E5F15D196B800C84263 /* Libraries */,
 				88EB1E5E15D191A100C84263 /* Models */,
 				8825EA1B15CCC5A600CECB4D /* External */,
@@ -333,6 +335,39 @@
 			name = "NSString+Levenshtein";
 			sourceTree = "<group>";
 		};
+		88EB1EB715D2ED9F00C84263 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */,
+				887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */,
+				88EB1EBB15D2F57400C84263 /* SWCarHistoryViewController.h */,
+				88EB1EBC15D2F57400C84263 /* SWCarHistoryViewController.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		88EB1EB915D2EDC300C84263 /* New Request */ = {
+			isa = PBXGroup;
+			children = (
+				8873598915CC6CB10087DD08 /* SWNewRequestViewController.h */,
+				8873598A15CC6CB10087DD08 /* SWNewRequestViewController.m */,
+				887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */,
+				887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */,
+			);
+			name = "New Request";
+			sourceTree = "<group>";
+		};
+		88EB1EBA15D2EDD600C84263 /* Select Car */ = {
+			isa = PBXGroup;
+			children = (
+				887359A915CC7D930087DD08 /* SWNewCarViewController.h */,
+				887359AA15CC7D930087DD08 /* SWNewCarViewController.m */,
+				8873599F15CC765A0087DD08 /* SWChooseCarViewController.h */,
+				887359A015CC765A0087DD08 /* SWChooseCarViewController.m */,
+			);
+			name = "Select Car";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,6 +438,8 @@
 				88EB1EAE15D1C3E200C84263 /* redPinOrig.png in Resources */,
 				88EB1EB015D1CC3F00C84263 /* icon@2x.png in Resources */,
 				88EB1EB215D1CC4100C84263 /* icon.png in Resources */,
+				88EB1EB415D2E89800C84263 /* parkingIcon.png in Resources */,
+				88EB1EB615D2E89B00C84263 /* parkingIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +474,7 @@
 				88EB1E9315D19CB400C84263 /* AFXMLRequestOperation.m in Sources */,
 				88EB1E9415D19CB400C84263 /* UIImageView+AFNetworking.m in Sources */,
 				88EB1EA015D1A60700C84263 /* NSString+Levenshtein.m in Sources */,
+				88EB1EBD15D2F57400C84263 /* SWCarHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

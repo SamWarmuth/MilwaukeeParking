@@ -11,6 +11,7 @@
 @interface SWRequestHistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tv;
+@property (nonatomic, strong) NSMutableArray *cars;
 
 
 - (IBAction)closeButtonTapped:(id)sender;

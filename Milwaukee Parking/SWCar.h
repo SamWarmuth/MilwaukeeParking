@@ -10,7 +10,7 @@
 
 @interface SWCar : NSObject
 
-@property (nonatomic, strong) NSString *nickname, *licensePlateNumber, *stateAbbreviation, *vehicleType, *tag;
+@property (nonatomic, strong) NSString *nickname, *licensePlateNumber, *stateAbbreviation, *vehicleType;
 @property (nonatomic, strong) NSMutableArray *requests;
 
 @end

@@ -26,15 +26,18 @@
     [encoder encodeObject:self.licensePlateNumber forKey:@"licensePlateNumber"];
     [encoder encodeObject:self.stateAbbreviation forKey:@"stateAbbreviation"];
     [encoder encodeObject:self.vehicleType forKey:@"vehicleType"];
+    [encoder encodeObject:self.requests forKey:@"requests"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if(self = [super init]) {
+    if (self = [super init]) {
         //decode properties, other class vars
         self.nickname = [decoder decodeObjectForKey:@"nickname"];
         self.licensePlateNumber = [decoder decodeObjectForKey:@"licensePlateNumber"];
         self.stateAbbreviation = [decoder decodeObjectForKey:@"stateAbbreviation"];
         self.vehicleType = [decoder decodeObjectForKey:@"vehicleType"];
+        self.requests = [decoder decodeObjectForKey:@"requests"];
     }
     return self;
 }

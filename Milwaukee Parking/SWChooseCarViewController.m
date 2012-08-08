@@ -81,6 +81,7 @@
     }
 
     SWCar *car = [self.cars objectAtIndex:indexPath.row];
+    
     if (car.nickname) cell.textLabel.text = car.nickname;
     else cell.textLabel.text = car.licensePlateNumber;
     

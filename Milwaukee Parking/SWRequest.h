@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "SWCar.h"
+#import <MapKit/MapKit.h>
 
 @interface SWRequest : NSObject
 
 @property (nonatomic, strong) NSString *houseNumber, *direction, *streetName, *suffix, *fullAddress, *district, *serverDate, *confirmationNumber;
+@property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) NSNumber *nightCount;
 
 

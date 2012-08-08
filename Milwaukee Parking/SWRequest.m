@@ -94,7 +94,9 @@
         NSTextCheckingResult *match = [regex firstMatchInString:request.responseString options:0 range:NSMakeRange(0, [request.responseString length])];
         
         if (!match || match == (id)[NSNull null]){
-            NSLog(@"Error, request wasn't successful. Maybe you've already registered for tonight?");
+            NSLog(@"Error, request wasn't successful. Maybe you've already requested permission for tonight?");
+            completed(nil, nil);
+            return;
         }
         
         self.confirmationNumber = [request.responseString substringWithRange:[match rangeAtIndex:1]];
@@ -110,6 +112,8 @@
         
 }
 
+
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.houseNumber forKey:@"houseNumber"];
@@ -117,21 +121,27 @@
     [encoder encodeObject:self.streetName forKey:@"streetName"];
     [encoder encodeObject:self.suffix forKey:@"suffix"];
     [encoder encodeObject:self.fullAddress forKey:@"fullAddress"];
+    [encoder encodeObject:self.district forKey:@"district"];
+    [encoder encodeObject:self.serverDate forKey:@"serverDate"];
     [encoder encodeObject:self.confirmationNumber forKey:@"confirmationNumber"];
-
+    [encoder encodeObject:self.location forKey:@"location"];
+    [encoder encodeObject:self.nightCount forKey:@"nightCount"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if(self = [super init]) {
+    if (self = [super init]) {
         //decode properties, other class vars
         self.houseNumber = [decoder decodeObjectForKey:@"houseNumber"];
         self.direction = [decoder decodeObjectForKey:@"direction"];
         self.streetName = [decoder decodeObjectForKey:@"streetName"];
         self.suffix = [decoder decodeObjectForKey:@"suffix"];
         self.fullAddress = [decoder decodeObjectForKey:@"fullAddress"];
+        self.district = [decoder decodeObjectForKey:@"district"];
+        self.serverDate = [decoder decodeObjectForKey:@"serverDate"];
         self.confirmationNumber = [decoder decodeObjectForKey:@"confirmationNumber"];
-        
-}
+        self.location = [decoder decodeObjectForKey:@"location"];
+        self.nightCount = [decoder decodeObjectForKey:@"nightCount"];
+    }
     return self;
 }
 

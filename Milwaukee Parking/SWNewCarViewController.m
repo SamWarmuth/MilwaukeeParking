@@ -79,6 +79,16 @@
     }
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.licensePlateField){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        if (newLength > 10) return NO;
+    }
+    
+    return YES;
+   
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

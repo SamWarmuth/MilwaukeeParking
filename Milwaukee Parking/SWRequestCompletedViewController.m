@@ -37,7 +37,11 @@
     
     self.addressLabel.text = self.request.fullAddress;
     self.dateLabel.text = self.request.serverDate;
+    self.numNightsLabel.text = [NSString stringWithFormat:@"%@", self.request.nightCount];
     self.confirmationLabel.text = self.request.confirmationNumber;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.request.location.coordinate, 400, 400);
+    [self.mapView setRegion:region animated:NO];
     
 }
 - (IBAction)tappedDoneButton:(id)sender

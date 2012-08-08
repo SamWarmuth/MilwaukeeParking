@@ -10,7 +10,7 @@
 #import "SWCar.h"
 #import "SWNewRequestViewController.h"
 
-@interface SWNewCarViewController : UIViewController
+@interface SWNewCarViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) SWCar *car;
 

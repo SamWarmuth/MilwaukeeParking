@@ -11,6 +11,7 @@
 #import "SWCar.h"
 #import "SWRequest.h"
 
+#define SWNewRequestAlertTag      12301
 @interface SWNewRequestViewController : UIViewController <MKMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
