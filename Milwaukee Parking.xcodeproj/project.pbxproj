@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88111C1C15D4629E0073B536 /* SWRequestHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88111C1B15D4629E0073B536 /* SWRequestHistoryCell.m */; };
 		8825EA2115CCC5AD00CECB4D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8825EA1E15CCC5AD00CECB4D /* SVProgressHUD.bundle */; };
 		8825EA2215CCC5AD00CECB4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825EA2015CCC5AD00CECB4D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8825EA2615CCC6AE00CECB4D /* SWCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825EA2515CCC6AE00CECB4D /* SWCar.m */; };
@@ -62,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88111C1A15D4629E0073B536 /* SWRequestHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestHistoryCell.h; sourceTree = "<group>"; };
+		88111C1B15D4629E0073B536 /* SWRequestHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestHistoryCell.m; sourceTree = "<group>"; };
 		8825EA1E15CCC5AD00CECB4D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		8825EA1F15CCC5AD00CECB4D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		8825EA2015CCC5AD00CECB4D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */,
 				88EB1EBB15D2F57400C84263 /* SWCarHistoryViewController.h */,
 				88EB1EBC15D2F57400C84263 /* SWCarHistoryViewController.m */,
+				88111C1A15D4629E0073B536 /* SWRequestHistoryCell.h */,
+				88111C1B15D4629E0073B536 /* SWRequestHistoryCell.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 				88EB1E9415D19CB400C84263 /* UIImageView+AFNetworking.m in Sources */,
 				88EB1EA015D1A60700C84263 /* NSString+Levenshtein.m in Sources */,
 				88EB1EBD15D2F57400C84263 /* SWCarHistoryViewController.m in Sources */,
+				88111C1C15D4629E0073B536 /* SWRequestHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

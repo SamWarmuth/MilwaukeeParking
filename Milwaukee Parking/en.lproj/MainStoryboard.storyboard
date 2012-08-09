@@ -83,43 +83,43 @@
             </objects>
             <point key="canvasLocation" x="1452" y="880"/>
         </scene>
-        <!--View Controller - Car Name-->
+        <!--Car History View Controller - Car Name-->
         <scene sceneID="DIY-mR-XWz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwQ-pS-4zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="464-Ck-zD4" sceneMemberID="viewController">
+                <viewController id="464-Ck-zD4" customClass="SWCarHistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zog-T1-wXT">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="GFX-9X-fMk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="GFX-9X-fMk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SWRequestCell" id="xNA-oB-vLb">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="120"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SWRequestHistoryCell" id="xNA-oB-vLb" customClass="SWRequestHistoryCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmation Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="wKK-pB-CbP">
-                                                    <rect key="frame" x="20" y="78" width="169" height="21"/>
+                                                    <rect key="frame" x="20" y="62" width="169" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ec2-2v-4Mc">
-                                                    <rect key="frame" x="20" y="20" width="89" height="21"/>
+                                                    <rect key="frame" x="20" y="4" width="89" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2637281" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FJR-mH-XnC">
-                                                    <rect key="frame" x="226" y="78" width="74" height="21"/>
+                                                    <rect key="frame" x="226" y="62" width="74" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.89477257639999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -127,21 +127,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1680 N Cass St" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3zn-cZ-BfW">
-                                                    <rect key="frame" x="117" y="20" width="183" height="21"/>
+                                                    <rect key="frame" x="117" y="4" width="183" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Night(s) of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vLt-96-Vvn">
-                                                    <rect key="frame" x="20" y="49" width="101" height="21"/>
+                                                    <rect key="frame" x="20" y="33" width="101" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aug 1st, Aug 2nd" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rTF-qi-iU7">
-                                                    <rect key="frame" x="117" y="49" width="183" height="21"/>
+                                                    <rect key="frame" x="117" y="33" width="183" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -150,13 +150,25 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="3zn-cZ-BfW" id="Js0-cI-PBo"/>
+                                            <outlet property="confirmationLabel" destination="FJR-mH-XnC" id="ckR-pF-VPp"/>
+                                            <outlet property="nightsLabel" destination="rTF-qi-iU7" id="zlc-WQ-nZ2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="464-Ck-zD4" id="PVf-ZG-bMc"/>
+                                    <outlet property="delegate" destination="464-Ck-zD4" id="cVQ-gm-9ee"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Car Name" id="etH-dc-L2j"/>
+                    <connections>
+                        <outlet property="tv" destination="GFX-9X-fMk" id="gwW-FW-ytN"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1996" y="880"/>
@@ -380,7 +392,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmation Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rev-N3-VSk">
-                                <rect key="frame" x="20" y="136" width="169" height="21"/>
+                                <rect key="frame" x="20" y="107" width="169" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -394,7 +406,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2637281" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QEN-gR-MWc">
-                                <rect key="frame" x="228" y="136" width="72" height="21"/>
+                                <rect key="frame" x="228" y="107" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.89477257639999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -422,7 +434,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Night of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Vtp-Dt-xXI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Night(s) of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Vtp-Dt-xXI">
                                 <rect key="frame" x="20" y="78" width="101" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -436,26 +448,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Nights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Xzd-yi-JYB">
-                                <rect key="frame" x="20" y="107" width="135" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ar0-fQ-1OL">
-                                <rect key="frame" x="117" y="107" width="183" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" id="DfU-Wl-k7e">
-                                <rect key="frame" x="20" y="172" width="280" height="224"/>
+                                <rect key="frame" x="0.0" y="143" width="320" height="273"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="redPin.png" id="So9-Cj-gmS">
-                                <rect key="frame" x="138" y="218" width="44" height="69"/>
+                                <rect key="frame" x="138" y="214" width="44" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -474,7 +472,6 @@
                         <outlet property="confirmationLabel" destination="QEN-gR-MWc" id="mye-VG-gaJ"/>
                         <outlet property="dateLabel" destination="fRO-dt-ka1" id="zbC-45-AGk"/>
                         <outlet property="mapView" destination="DfU-Wl-k7e" id="3AV-FK-JGQ"/>
-                        <outlet property="numNightsLabel" destination="ar0-fQ-1OL" id="n5j-PJ-7Pl"/>
                     </connections>
                 </viewController>
             </objects>
@@ -522,6 +519,12 @@
         <image name="redPin.png" width="44" height="69"/>
     </resources>
     <classes>
+        <class className="SWCarHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWCarHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="SWChooseCarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SWChooseCarViewController.h"/>
             <relationships>
@@ -563,6 +566,14 @@
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="numNightsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SWRequestHistoryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRequestHistoryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="confirmationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nightsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SWRequestHistoryViewController" superclassName="UIViewController">

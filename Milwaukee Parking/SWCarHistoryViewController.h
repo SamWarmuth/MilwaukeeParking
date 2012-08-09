@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCar.h"
+#import "SWRequest.h"
 
-@interface SWCarHistoryViewController : UIViewController
+@interface SWCarHistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UITableView *tv;
+@property (nonatomic, strong) SWCar *car;
 
 @end

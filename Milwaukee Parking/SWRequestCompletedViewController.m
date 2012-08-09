@@ -36,7 +36,18 @@
     else self.carNameLabel.text = self.car.licensePlateNumber;
     
     self.addressLabel.text = self.request.fullAddress;
-    self.dateLabel.text = self.request.serverDate;
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"MMM d";
+    
+    if ([self.request.nightCount intValue] == 1){
+        self.dateLabel.text = [dateFormatter stringFromDate:self.request.date];
+    } else {
+        NSString *startString = [dateFormatter stringFromDate:self.request.date];
+        NSString *endString = [dateFormatter stringFromDate:[NSDate dateWithTimeInterval: 86400.0f*([self.request.nightCount intValue]-1) sinceDate:self.request.date]];
+        self.dateLabel.text = [NSString stringWithFormat:@"%@ - %@", startString, endString];
+        
+    }
+    
     self.numNightsLabel.text = [NSString stringWithFormat:@"%@", self.request.nightCount];
     self.confirmationLabel.text = self.request.confirmationNumber;
     

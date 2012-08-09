@@ -126,6 +126,8 @@
     [encoder encodeObject:self.confirmationNumber forKey:@"confirmationNumber"];
     [encoder encodeObject:self.location forKey:@"location"];
     [encoder encodeObject:self.nightCount forKey:@"nightCount"];
+    [encoder encodeObject:self.date forKey:@"date"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -141,6 +143,8 @@
         self.confirmationNumber = [decoder decodeObjectForKey:@"confirmationNumber"];
         self.location = [decoder decodeObjectForKey:@"location"];
         self.nightCount = [decoder decodeObjectForKey:@"nightCount"];
+        self.date = [decoder decodeObjectForKey:@"date"];
+
     }
     return self;
 }

@@ -144,11 +144,12 @@ bool userMovedMap;
 - (IBAction)tappedRequestButton:(id)sender
 {
     self.request.nightCount = [NSNumber numberWithInteger:self.nightCountSegControl.selectedSegmentIndex + 1];
+    self.request.date = [NSDate date];
     
-    NSString *nightPlural = @"nights";
-    if ([self.request.nightCount intValue] == 1) nightPlural = @"night";
+    NSString *nightPlural = @"Nights";
+    if ([self.request.nightCount intValue] == 1) nightPlural = @"Night";
     
-    NSString *messageText = [NSString stringWithFormat:@"License plate '%@'\n%@\n %@ %@", self.car.licensePlateNumber, self.request.fullAddress, self.request.nightCount, nightPlural ];
+    NSString *messageText = [NSString stringWithFormat:@"License Plate '%@'\n%@\n %@ %@", self.car.licensePlateNumber, self.request.fullAddress, self.request.nightCount, nightPlural ];
         
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Request Permission?"
                                                         message:messageText
@@ -158,17 +159,7 @@ bool userMovedMap;
     alertView.delegate = self;
     alertView.tag = SWNewRequestAlertTag;
     
-    //this is an ugly hack, but it makes the formatting nicer.
-    UILabel *alertViewLabel = (UILabel*)[[alertView subviews] objectAtIndex:1];
-    alertViewLabel.textAlignment = UITextAlignmentRight;
-    
     [alertView show];
-    
-    
-    
-
-    
-        
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -185,6 +176,14 @@ bool userMovedMap;
         
         [SVProgressHUD showWithStatus:@"Requesting Parking Permission"];
         
+        if ([self.car.licensePlateNumber isEqualToString:@"TESTING"]){
+            [SVProgressHUD dismiss];
+            self.request.confirmationNumber = @"1876543";
+            [appDelegate saveCarsToDefaults];
+            [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
+            return;
+        }
+        
         [self.request sendRequestWithCar:self.car andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
             if (error || !confirmationCode){
                 [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\nMaybe you've already requested permission for tonight?" afterDelay:5.0];
@@ -194,11 +193,9 @@ bool userMovedMap;
                 NSLog(@"Done.");
                 //This request is now fully complete, save.
                 [appDelegate saveCarsToDefaults];
-                //[self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
+                [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
             }
-            
         }];
-
     } 
 }
 

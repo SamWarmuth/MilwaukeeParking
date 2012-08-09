@@ -10,6 +10,7 @@
 #import "SWAppDelegate.h"
 #import "SWCar.h"
 #import "SWRequest.h"
+#import "SWCarHistoryViewController.h"
 
 @interface SWRequestHistoryViewController ()
 
@@ -77,6 +78,14 @@
 {
     
     [self performSegueWithIdentifier:@"SWHistoryToCarHistory" sender:[self.cars objectAtIndex:indexPath.row]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SWHistoryToCarHistory"]){
+        SWCarHistoryViewController *destinationController = [segue destinationViewController];
+        destinationController.car = sender;
+    }
 }
 
 

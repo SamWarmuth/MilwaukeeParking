@@ -13,6 +13,7 @@
 @interface SWRequest : NSObject
 
 @property (nonatomic, strong) NSString *houseNumber, *direction, *streetName, *suffix, *fullAddress, *district, *serverDate, *confirmationNumber;
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) NSNumber *nightCount;
 
