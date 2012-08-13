@@ -37,7 +37,6 @@
     }
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/street_picker"]];
-    
     [httpClient getPath:@"" parameters:nil success:^(AFHTTPRequestOperation *request, id rawResponseData) {
         //NSDictionary *response = [NSJSONSerialization JSONObjectWithData:rawResponseData options:kNilOptions error:nil];
         //NSLog(@"RESPO: %@", request.responseString);
