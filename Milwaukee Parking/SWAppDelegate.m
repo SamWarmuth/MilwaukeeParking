@@ -7,7 +7,6 @@
 //
 
 #import "SWAppDelegate.h"
-#import "SWCar.h"
 #import "SWAddressMatcher.h"
 
 @implementation SWAppDelegate
@@ -37,6 +36,14 @@
     } else {
         self.cars = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:carData];
     }
+}
+
+- (SWCar *)findCarWithLicensePlate:(NSString *)licensePlate
+{
+    for (SWCar *car in self.cars){
+        if ([car.licensePlateNumber isEqualToString:licensePlate]) return car;
+    }
+    return nil;
 }
 
 

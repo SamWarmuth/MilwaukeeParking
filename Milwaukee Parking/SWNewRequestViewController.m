@@ -6,11 +6,10 @@
 //  Copyright (c) 2012 Samuel Warmuth. All rights reserved.
 //
 
+#import "SWRequestCompletedViewController.h"
 #import "SWNewRequestViewController.h"
 #import "SWAddressMatcher.h"
-#import "SWRequestCompletedViewController.h"
 #import "SWAppDelegate.h"
-#import "SVProgressHUD.h"
 
 
 @interface SWNewRequestViewController ()
@@ -18,7 +17,7 @@
 @end
 
 @implementation SWNewRequestViewController
-bool userMovedMap;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,12 +48,12 @@ bool userMovedMap;
     if (self.car.nickname) self.carNameLabel.text = [NSString stringWithFormat:@"%@ (%@)", self.car.nickname, self.car.licensePlateNumber];
     else self.carNameLabel.text = self.car.licensePlateNumber;
     
-    userMovedMap = FALSE;
+    self.userMovedMap = FALSE;
 }
 
 - (void)userUpdatedMap
 {
-    userMovedMap = TRUE;
+    self.userMovedMap = TRUE;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -63,7 +62,7 @@ bool userMovedMap;
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    if (userMovedMap) return;
+    if (self.userMovedMap) return;
     if (userLocation.coordinate.latitude == 0.0) return;
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
@@ -89,8 +88,8 @@ bool userMovedMap;
     self.addressLabel.text = @"Finding Address...";
     
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        //Get nearby address
+
+        //kludge to fix sticky location bug
         CLPlacemark *placemark = [placemarks objectAtIndex:0];
         if ([placemark.thoroughfare isEqualToString:@"Bee Creek"]){
             CLLocationCoordinate2D centerCoord = self.mapView.centerCoordinate;
@@ -103,15 +102,15 @@ bool userMovedMap;
         
         if (!components){
             self.addressLabel.text = @"Not a valid address.";
-            NSLog(@"ER %@", placemark.thoroughfare);
-
+            self.request.location = nil;
+            NSLog(@"Error: %@", placemark.thoroughfare);
             return;
         }
+        
         NSString *singleNumberAddress = [[NSNumber numberWithInt:[placemark.subThoroughfare integerValue]] stringValue];
         NSString *addressString = [NSString stringWithFormat:@"%@ %@", singleNumberAddress, placemark.thoroughfare];
         
         self.addressLabel.text = addressString;
-        
         self.request.houseNumber = singleNumberAddress;
         self.request.direction = [components objectForKey:@"direction"];
         self.request.streetName = [components objectForKey:@"street"];
@@ -123,14 +122,13 @@ bool userMovedMap;
 
 - (IBAction)tappedCenterOnUser:(id)sender
 {
-    
     if (!self.mapView.userLocation || self.mapView.userLocation.location.coordinate.latitude == 0.0){
         [SVProgressHUD show];
         [SVProgressHUD dismissWithError:@"Current location not available."];
         return;
     }
     
-    userMovedMap = FALSE;
+    self.userMovedMap = FALSE;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 400, 400);
     [self.mapView setRegion:region animated:YES];
 }
@@ -143,7 +141,13 @@ bool userMovedMap;
 
 - (IBAction)tappedRequestButton:(id)sender
 {
-    self.request.nightCount = [NSNumber numberWithInteger:self.nightCountSegControl.selectedSegmentIndex + 1];
+    if (!self.request.location){
+        [SVProgressHUD show];
+        [SVProgressHUD dismissWithError:@"This location isn't valid."];
+        return;
+    }
+    
+    self.request.nightCount = @(self.nightCountSegControl.selectedSegmentIndex + 1);
     self.request.date = [NSDate date];
     
     NSString *nightPlural = @"Nights";
@@ -156,6 +160,7 @@ bool userMovedMap;
                                                        delegate:nil
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Request", nil];
+    
     alertView.delegate = self;
     alertView.tag = SWNewRequestAlertTag;
     
@@ -186,11 +191,17 @@ bool userMovedMap;
         
         [self.request sendRequestWithCar:self.car andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
             if (error || !confirmationCode){
-                [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\nMaybe you've already requested permission for tonight?" afterDelay:5.0];
-                NSLog(@"Oh No! Error.");
+                NSLog(@"%@", error);
+                if (error && error.code == SWAlreadyRegisteredError) {
+                    [SVProgressHUD dismissWithError:@"Sorry, this license plate already has parking permission for tonight." afterDelay:5.0];
+                } else if (error && error.code == SWHitMonthlyLimitError){
+                    [SVProgressHUD dismissWithError:@"Sorry, this license plate has already used 3 nights of parking this month." afterDelay:5.0];
+                } else {
+                    [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\n Please try again." afterDelay:5.0];
+                }
+                
             } else {
                 [SVProgressHUD dismiss];
-                NSLog(@"Done.");
                 //This request is now fully complete, save.
                 [appDelegate saveCarsToDefaults];
                 [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];

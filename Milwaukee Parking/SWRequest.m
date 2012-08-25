@@ -15,43 +15,28 @@
 
 - (void)sendRequestWithCar:(SWCar *)car andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed
 {
-    NSLog(@"hi.");
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:self.houseNumber              forKey:@"laddr"];
     [parameters setObject:self.direction                forKey:@"sdir"];
     [parameters setObject:self.streetName               forKey:@"sname"];
     [parameters setObject:self.suffix                   forKey:@"stype"];
-
     [parameters setObject:[NSString stringWithFormat:@"%@", self.nightCount] forKey:@"numdays"];
-
+    
     [parameters setObject:car.stateAbbreviation         forKey:@"state"];
     [parameters setObject:car.licensePlateNumber        forKey:@"tagID"];
     [parameters setObject:car.vehicleType               forKey:@"vType"];
-
-
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/np_permission"]];
     [httpClient postPath:@"" parameters:parameters success:^(AFHTTPRequestOperation *request, id rawResponseData) {
-        //NSDictionary *response = [NSJSONSerialization JSONObjectWithData:rawResponseData options:kNilOptions error:nil];
-        //NSLog(@"RESPO: %@", request.responseString);
-        
         [self sendConfirmationWithIntitialResponse:request.responseString withParams:parameters andCompletionBlock:^(NSError *error, NSString *confirmationCode) {
-            NSLog(@"Ok, actually done.");
-            completed(nil, confirmationCode);
-
+            NSLog(@"Request completed.");
+            completed(error, confirmationCode);
         }];
-        
-        
-
-        
-        
     } failure:^(AFHTTPRequestOperation *request, NSError *error) {
         NSLog(@"REQ: %@", request);
         NSLog(@"ERR: %@", error);
         completed(nil, nil);
-
     }];
-    
 }
 
 
@@ -60,9 +45,7 @@
     //laddr changes into houseNum
     [parameters setObject:[parameters objectForKey:@"laddr"] forKey:@"houseNum"];
     [parameters removeObjectForKey:@"laddr"];
-    
-    
-    
+
     NSError *error;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:responseHTML error:&error];
     if (error) {
@@ -70,49 +53,53 @@
         return;
     }
     HTMLNode *bodyNode = [parser body];
-    
-    
     HTMLNode *form = [bodyNode findChildWithAttribute:@"id" matchingName:@"nConf" allowPartial:FALSE];
-    //NSArray *inputNodes = [bodyNode findChildTags:@"input"];
-    //for (HTMLNode *node in inputNodes){
-        //NSLog(@"Ok, this node's name is ")
-    //}
-    
     self.serverDate = [[form findChildWithAttribute:@"name" matchingName:@"rdate" allowPartial:FALSE] getAttributeNamed:@"value"];
     self.district = [[form findChildWithAttribute:@"name" matchingName:@"dist" allowPartial:FALSE] getAttributeNamed:@"value"];
-    
     
     [parameters setObject:self.serverDate forKey:@"rdate"];
     [parameters setObject:self.district forKey:@"dist"];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/np_confirmation"]];
     [httpClient postPath:@"" parameters:parameters success:^(AFHTTPRequestOperation *request, id rawResponseData) {
-        //NSDictionary *response = [NSJSONSerialization JSONObjectWithData:rawResponseData options:kNilOptions error:nil];
         NSLog(@"RESPO: %@", request.responseString);
-        
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<b>(\\d{7})<\\/b>" options:0 error:NULL];
         NSTextCheckingResult *match = [regex firstMatchInString:request.responseString options:0 range:NSMakeRange(0, [request.responseString length])];
-        
         if (!match || match == (id)[NSNull null]){
-            NSLog(@"Error, request wasn't successful. Maybe you've already requested permission for tonight?");
-            completed(nil, nil);
+            NSError *error = [self findErrorInResponse:request.responseString];
+            NSLog(@"ERR:%@", error);
+            NSLog(@"Error, request wasn't successful.");
+            completed(error, nil);
             return;
         }
-        
         self.confirmationNumber = [request.responseString substringWithRange:[match rangeAtIndex:1]];
-
-        NSLog(@"Confirmation? A:%@", self.confirmationNumber);
-        
         completed(nil, self.confirmationNumber);
     } failure:^(AFHTTPRequestOperation *request, NSError *error) {
         NSLog(@"REQ: %@", request);
         NSLog(@"ERR: %@", error);
         completed(nil, nil);
     }];
-        
 }
 
-
+- (NSError *)findErrorInResponse:(NSString *)response
+{
+    NSError *error;
+    
+    NSRange registeredRange = [response rangeOfString: @"This license plate is already registered"];
+    if (registeredRange.location != NSNotFound){
+        error = [NSError errorWithDomain:@"SWError" code:SWAlreadyRegisteredError userInfo:nil];
+        return error;
+    }
+    
+    NSRange monthlyRange = [response rangeOfString: @"You are only allowed"];
+    if (monthlyRange.location != NSNotFound){
+        error = [NSError errorWithDomain:@"SWError" code:SWHitMonthlyLimitError userInfo:nil];
+        return error;
+    }
+    
+    error = [NSError errorWithDomain:@"SWError" code:SWUnknownError userInfo:nil];
+    return error;
+}
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc

@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Samuel Warmuth. All rights reserved.
 //
 
+#import "SWNewRequestViewController.h"
 #import <UIKit/UIKit.h>
 #import "SWCar.h"
-#import "SWNewRequestViewController.h"
 
 @interface SWNewCarViewController : UIViewController <UITextFieldDelegate>
 

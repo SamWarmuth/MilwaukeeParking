@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCar.h"
 
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -14,5 +15,6 @@
 @property (strong, nonatomic) NSMutableArray *cars;
 
 - (void)saveCarsToDefaults;
+- (SWCar *)findCarWithLicensePlate:(NSString *)licensePlate;
 
 @end

@@ -6,10 +6,9 @@
 //  Copyright (c) 2012 Samuel Warmuth. All rights reserved.
 //
 
+#import "SWNewRequestViewController.h"
 #import "SWNewCarViewController.h"
 #import "SWAppDelegate.h"
-#import "SVProgressHUD.h"
-#import "SWNewRequestViewController.h"
 
 @interface SWNewCarViewController ()
 
@@ -29,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,27 +38,33 @@
 
 - (IBAction)tappedStateButton:(id)sender
 {
-    
+#warning can't set state yet
 }
-
 
 - (IBAction)tappedDoneButton:(id)sender
 {
-    if (self.licensePlateField.text.length == 0){
+    SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSCharacterSet *nonAlphanumericSet = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+    NSString *licensePlateString = [[self.licensePlateField.text componentsSeparatedByCharactersInSet:nonAlphanumericSet] componentsJoinedByString:@""];
+                              
+    if (licensePlateString.length == 0){
         [SVProgressHUD show];
         [SVProgressHUD dismissWithError:@"You need to enter your license plate number."];
         return;
     }
-    SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if ([appDelegate findCarWithLicensePlate:licensePlateString]){
+        [SVProgressHUD show];
+        [SVProgressHUD dismissWithError:@"A car with this license plate already exists."];
+        return;
+    }
     
     self.car = [SWCar new];
     if (self.nicknameField.text.length != 0) self.car.nickname = self.nicknameField.text;
 
-    self.car.licensePlateNumber = self.licensePlateField.text;
+    self.car.licensePlateNumber = [licensePlateString uppercaseString];
     self.car.stateAbbreviation = @"WI";
-            
-        
-    NSArray *types = [NSArray arrayWithObjects:@"PC", @"TK", @"MC", nil];
+    NSArray *types = @[@"PC", @"TK", @"MC"];
     self.car.vehicleType = [types objectAtIndex:self.vehicleTypeSegControl.selectedSegmentIndex];
     
     @synchronized (appDelegate.cars) {
@@ -68,7 +72,6 @@
         [appDelegate saveCarsToDefaults];
     }
     [self performSegueWithIdentifier:@"SWNewCarToNewRequest" sender:self];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -84,15 +87,12 @@
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
         if (newLength > 10) return NO;
     }
-    
     return YES;
-   
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -9,7 +9,6 @@
 #import "SWAddressMatcher.h"
 #import "AFNetworking.h"
 #import "HTMLParser.h"
-#import "NSString+Levenshtein.h"
 
 @implementation SWAddressMatcher
 

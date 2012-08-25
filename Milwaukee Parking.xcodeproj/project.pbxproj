@@ -29,9 +29,11 @@
 		8873599D15CC6E860087DD08 /* map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873599715CC6E860087DD08 /* map-marker.png */; };
 		8873599E15CC6E860087DD08 /* map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873599815CC6E860087DD08 /* map-marker@2x.png */; };
 		887359A115CC765A0087DD08 /* SWChooseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359A015CC765A0087DD08 /* SWChooseCarViewController.m */; };
-		887359A415CC76940087DD08 /* SWRequestHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */; };
 		887359AB15CC7D940087DD08 /* SWNewCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AA15CC7D930087DD08 /* SWNewCarViewController.m */; };
 		887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */; };
+		88D8FF5815E82DBC00140D5B /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */; };
+		88D8FF5915E82DBC00140D5B /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5715E82DBC00140D5B /* UIColor-Expanded.m */; };
+		88D8FF5D15E834BA00140D5B /* SWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5C15E834BA00140D5B /* SWSettingsViewController.m */; };
 		88EB1E5C15D1919E00C84263 /* SWRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E5B15D1919E00C84263 /* SWRequest.m */; };
 		88EB1E6215D196CC00C84263 /* SWAddressMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E6115D196CC00C84263 /* SWAddressMatcher.m */; };
 		88EB1E6C15D196FA00C84263 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E6915D196FA00C84263 /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -47,7 +49,6 @@
 		88EB1E9215D19CB400C84263 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E8615D19CB400C84263 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88EB1E9315D19CB400C84263 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E8815D19CB400C84263 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		88EB1E9415D19CB400C84263 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E8A15D19CB400C84263 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		88EB1EA015D1A60700C84263 /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB1E9E15D1A44900C84263 /* NSString+Levenshtein.m */; };
 		88EB1EA315D1C0FE00C84263 /* greenPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EA115D1C0FE00C84263 /* greenPin.png */; };
 		88EB1EA415D1C0FE00C84263 /* greenPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EA215D1C0FE00C84263 /* greenPin@2x.png */; };
 		88EB1EA715D1C21B00C84263 /* ngreenPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EB1EA515D1C21B00C84263 /* ngreenPin.png */; };
@@ -94,12 +95,16 @@
 		8873599815CC6E860087DD08 /* map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-marker@2x.png"; sourceTree = "<group>"; };
 		8873599F15CC765A0087DD08 /* SWChooseCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChooseCarViewController.h; sourceTree = "<group>"; };
 		887359A015CC765A0087DD08 /* SWChooseCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChooseCarViewController.m; sourceTree = "<group>"; };
-		887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestHistoryViewController.h; sourceTree = "<group>"; };
-		887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestHistoryViewController.m; sourceTree = "<group>"; };
 		887359A915CC7D930087DD08 /* SWNewCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNewCarViewController.h; sourceTree = "<group>"; };
 		887359AA15CC7D930087DD08 /* SWNewCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNewCarViewController.m; sourceTree = "<group>"; };
 		887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestCompletedViewController.h; sourceTree = "<group>"; };
 		887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestCompletedViewController.m; sourceTree = "<group>"; };
+		88D8FF5415E82DBC00140D5B /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
+		88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
+		88D8FF5615E82DBC00140D5B /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
+		88D8FF5715E82DBC00140D5B /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
+		88D8FF5B15E834BA00140D5B /* SWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsViewController.h; sourceTree = "<group>"; };
+		88D8FF5C15E834BA00140D5B /* SWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsViewController.m; sourceTree = "<group>"; };
 		88EB1E5A15D1919E00C84263 /* SWRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequest.h; sourceTree = "<group>"; };
 		88EB1E5B15D1919E00C84263 /* SWRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequest.m; sourceTree = "<group>"; };
 		88EB1E6015D196CC00C84263 /* SWAddressMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SWAddressMatcher.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -130,8 +135,6 @@
 		88EB1E8815D19CB400C84263 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		88EB1E8915D19CB400C84263 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		88EB1E8A15D19CB400C84263 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		88EB1E9E15D1A44900C84263 /* NSString+Levenshtein.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
-		88EB1E9F15D1A44900C84263 /* NSString+Levenshtein.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
 		88EB1EA115D1C0FE00C84263 /* greenPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenPin.png; sourceTree = "<group>"; };
 		88EB1EA215D1C0FE00C84263 /* greenPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenPin@2x.png"; sourceTree = "<group>"; };
 		88EB1EA515D1C21B00C84263 /* ngreenPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ngreenPin.png; sourceTree = "<group>"; };
@@ -152,13 +155,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88EB1E7415D19BC800C84263 /* libxml2.2.dylib in Frameworks */,
+				8873597115CC6C8D0087DD08 /* CoreGraphics.framework in Frameworks */,
 				8825EA2D15CCD96E00CECB4D /* CoreLocation.framework in Frameworks */,
+				8873596F15CC6C8D0087DD08 /* Foundation.framework in Frameworks */,
+				88EB1E7415D19BC800C84263 /* libxml2.2.dylib in Frameworks */,
 				8873599015CC6CCF0087DD08 /* MapKit.framework in Frameworks */,
 				8873599115CC6CCF0087DD08 /* QuartzCore.framework in Frameworks */,
 				8873596D15CC6C8D0087DD08 /* UIKit.framework in Frameworks */,
-				8873596F15CC6C8D0087DD08 /* Foundation.framework in Frameworks */,
-				8873597115CC6C8D0087DD08 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +171,7 @@
 		8825EA1B15CCC5A600CECB4D /* External */ = {
 			isa = PBXGroup;
 			children = (
-				88EB1E9D15D1A44000C84263 /* NSString+Levenshtein */,
+				88D8FF5315E82DBC00140D5B /* MAConfirmButton */,
 				88EB1E7515D19CB400C84263 /* AFNetworking */,
 				88EB1E6715D196FA00C84263 /* HTMLParser */,
 				8825EA1D15CCC5AD00CECB4D /* SVProgressHUD */,
@@ -231,6 +234,7 @@
 				88EB1EB915D2EDC300C84263 /* New Request */,
 				88EB1EB715D2ED9F00C84263 /* History */,
 				88EB1E5F15D196B800C84263 /* Libraries */,
+				88D8FF5A15E834A400140D5B /* Settings */,
 				88EB1E5E15D191A100C84263 /* Models */,
 				8825EA1B15CCC5A600CECB4D /* External */,
 				8873599215CC6E7D0087DD08 /* Images */,
@@ -268,6 +272,26 @@
 				8873599815CC6E860087DD08 /* map-marker@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		88D8FF5315E82DBC00140D5B /* MAConfirmButton */ = {
+			isa = PBXGroup;
+			children = (
+				88D8FF5415E82DBC00140D5B /* MAConfirmButton.h */,
+				88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */,
+				88D8FF5615E82DBC00140D5B /* UIColor-Expanded.h */,
+				88D8FF5715E82DBC00140D5B /* UIColor-Expanded.m */,
+			);
+			path = MAConfirmButton;
+			sourceTree = "<group>";
+		};
+		88D8FF5A15E834A400140D5B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				88D8FF5B15E834BA00140D5B /* SWSettingsViewController.h */,
+				88D8FF5C15E834BA00140D5B /* SWSettingsViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		88EB1E5E15D191A100C84263 /* Models */ = {
@@ -329,20 +353,9 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		88EB1E9D15D1A44000C84263 /* NSString+Levenshtein */ = {
-			isa = PBXGroup;
-			children = (
-				88EB1E9F15D1A44900C84263 /* NSString+Levenshtein.h */,
-				88EB1E9E15D1A44900C84263 /* NSString+Levenshtein.m */,
-			);
-			name = "NSString+Levenshtein";
-			sourceTree = "<group>";
-		};
 		88EB1EB715D2ED9F00C84263 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				887359A215CC76940087DD08 /* SWRequestHistoryViewController.h */,
-				887359A315CC76940087DD08 /* SWRequestHistoryViewController.m */,
 				88EB1EBB15D2F57400C84263 /* SWCarHistoryViewController.h */,
 				88EB1EBC15D2F57400C84263 /* SWCarHistoryViewController.m */,
 				88111C1A15D4629E0073B536 /* SWRequestHistoryCell.h */,
@@ -459,7 +472,6 @@
 				8873597D15CC6C8D0087DD08 /* SWAppDelegate.m in Sources */,
 				8873598B15CC6CB10087DD08 /* SWNewRequestViewController.m in Sources */,
 				887359A115CC765A0087DD08 /* SWChooseCarViewController.m in Sources */,
-				887359A415CC76940087DD08 /* SWRequestHistoryViewController.m in Sources */,
 				887359AB15CC7D940087DD08 /* SWNewCarViewController.m in Sources */,
 				887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */,
 				8825EA2215CCC5AD00CECB4D /* SVProgressHUD.m in Sources */,
@@ -478,9 +490,11 @@
 				88EB1E9215D19CB400C84263 /* AFURLConnectionOperation.m in Sources */,
 				88EB1E9315D19CB400C84263 /* AFXMLRequestOperation.m in Sources */,
 				88EB1E9415D19CB400C84263 /* UIImageView+AFNetworking.m in Sources */,
-				88EB1EA015D1A60700C84263 /* NSString+Levenshtein.m in Sources */,
 				88EB1EBD15D2F57400C84263 /* SWCarHistoryViewController.m in Sources */,
 				88111C1C15D4629E0073B536 /* SWRequestHistoryCell.m in Sources */,
+				88D8FF5815E82DBC00140D5B /* MAConfirmButton.m in Sources */,
+				88D8FF5915E82DBC00140D5B /* UIColor-Expanded.m in Sources */,
+				88D8FF5D15E834BA00140D5B /* SWSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +572,10 @@
 		8873598715CC6C8D0087DD08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Milwaukee Parking/Milwaukee Parking-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -567,6 +584,7 @@
 				);
 				INFOPLIST_FILE = "Milwaukee Parking/Milwaukee Parking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -575,7 +593,10 @@
 		8873598815CC6C8D0087DD08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Milwaukee Parking/Milwaukee Parking-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -584,6 +605,7 @@
 				);
 				INFOPLIST_FILE = "Milwaukee Parking/Milwaukee Parking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

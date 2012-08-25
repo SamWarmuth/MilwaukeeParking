@@ -32,6 +32,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.tv reloadData];
+    
+    if (self.car.nickname) self.navigationItem.title = self.car.nickname;
+    else self.navigationItem.title = self.car.licensePlateNumber;
 }
 
 #pragma mark -

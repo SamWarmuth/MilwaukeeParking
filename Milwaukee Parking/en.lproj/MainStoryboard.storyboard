@@ -27,12 +27,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Car" id="VgG-wq-HRu">
-                        <barButtonItem key="leftBarButtonItem" title="History" id="Rk2-dM-UoL">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="upV-Bq-rg8">
                             <connections>
-                                <segue destination="rIB-2k-0m3" kind="modal" id="bxR-ga-tPL"/>
+                                <segue destination="CHT-5r-tP2" kind="modal" id="aed-Mb-2MA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New" id="jOJ-hz-CJs">
+                        <barButtonItem key="rightBarButtonItem" title="New Car" id="jOJ-hz-CJs">
                             <connections>
                                 <action selector="newButtonPressed:" destination="HO6-Gj-W7c" id="1N6-9L-9ht"/>
                             </connections>
@@ -42,46 +42,11 @@
                         <outlet property="tv" destination="mjG-WH-W0O" id="0Dd-dG-V5y"/>
                         <segue destination="tXt-ix-sey" kind="push" identifier="SWChooseCarToNewCar" id="uDt-GP-feO"/>
                         <segue destination="2" kind="push" identifier="SWChooseCarToNewRequest" id="v0q-cC-yaq"/>
+                        <segue destination="464-Ck-zD4" kind="push" identifier="SWChooseCarToHistory" id="zec-Th-YFp"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="322" y="127"/>
-        </scene>
-        <!--Request History View Controller - History-->
-        <scene sceneID="dDp-ij-ds0">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EuW-Tu-Cox" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Vrf-h7-3fU" customClass="SWRequestHistoryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="riA-os-vh9">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tfd-at-lQt">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Vrf-h7-3fU" id="ORC-T8-C7I"/>
-                                    <outlet property="delegate" destination="Vrf-h7-3fU" id="9w0-55-Hlf"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="History" id="YrC-rZ-nuB">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="BLy-Gm-lmD">
-                            <connections>
-                                <action selector="closeButtonTapped:" destination="Vrf-h7-3fU" id="neF-JE-bYl"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tv" destination="Tfd-at-lQt" id="4ee-FN-exc"/>
-                        <segue destination="464-Ck-zD4" kind="push" identifier="SWHistoryToCarHistory" id="oxZ-wX-eNa"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1452" y="880"/>
+            <point key="canvasLocation" x="-82" y="746"/>
         </scene>
         <!--Car History View Controller - Car Name-->
         <scene sceneID="DIY-mR-XWz">
@@ -171,7 +136,75 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1996" y="880"/>
+            <point key="canvasLocation" x="802" y="746"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="lcH-2v-zrc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UlG-t9-Aur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="v5D-Gv-ueD" customClass="SWSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="uyx-5z-8Pn">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Email Confirmation" id="Hu6-H2-rdh">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kRU-Xj-o5B">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yoy-0H-jr2">
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="fNy-Ti-bsa">
+                                                    <rect key="frame" x="201" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@gmail.com" minimumFontSize="17" id="rJj-na-oVt">
+                                                    <rect key="frame" x="20" y="6" width="173" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="v5D-Gv-ueD" id="qRZ-Qp-SbX"/>
+                            <outlet property="delegate" destination="v5D-Gv-ueD" id="mHB-0S-unp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="65c-NH-hk0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7bM-0y-ryX">
+                            <connections>
+                                <action selector="cancel:" destination="v5D-Gv-ueD" id="sWb-Tg-T64"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FFU-Tx-OSc">
+                            <connections>
+                                <action selector="save:" destination="v5D-Gv-ueD" id="05q-4c-qz0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailField" destination="rJj-na-oVt" id="VPk-J6-GFf"/>
+                        <outlet property="emailSwitch" destination="fNy-Ti-bsa" id="FFc-hK-7gN"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1334" y="1521"/>
         </scene>
         <!--New Car View Controller - New Car-->
         <scene sceneID="oUL-PY-s1g">
@@ -268,7 +301,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="954" y="-470"/>
+            <point key="canvasLocation" x="410" y="115"/>
         </scene>
         <!--New Request View Controller - New Request-->
         <scene sceneID="5">
@@ -380,7 +413,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1558" y="127"/>
+            <point key="canvasLocation" x="1258" y="115"/>
         </scene>
         <!--Request Completed View Controller - Request Granted-->
         <scene sceneID="1dF-ZM-6qm">
@@ -475,7 +508,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2074" y="127"/>
+            <point key="canvasLocation" x="1774" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h5M-rP-YTN">
@@ -493,25 +526,25 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-204" y="127"/>
+            <point key="canvasLocation" x="-608" y="746"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="PLR-Fo-e0k">
+        <scene sceneID="BCL-mO-m0i">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SBb-3Q-YhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="rIB-2k-0m3" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oUB-5S-xwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="CHT-5r-tP2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K7R-eg-mSM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oke-uM-3rR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Vrf-h7-3fU" kind="relationship" relationship="rootViewController" id="kqh-UQ-lB5"/>
+                        <segue destination="v5D-Gv-ueD" kind="relationship" relationship="rootViewController" id="Efd-Ak-eab"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="926" y="880"/>
+            <point key="canvasLocation" x="808" y="1521"/>
         </scene>
     </scenes>
     <resources>
@@ -528,7 +561,6 @@
         <class className="SWChooseCarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SWChooseCarViewController.h"/>
             <relationships>
-                <relationship kind="action" name="editButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="newButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
             </relationships>
@@ -576,11 +608,13 @@
                 <relationship kind="outlet" name="nightsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="SWRequestHistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRequestHistoryViewController.h"/>
+        <class className="SWSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWSettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="closeButtonTapped:"/>
-                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
     </classes>

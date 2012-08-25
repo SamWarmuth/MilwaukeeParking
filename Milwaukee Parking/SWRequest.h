@@ -10,6 +10,12 @@
 #import "SWCar.h"
 #import <MapKit/MapKit.h>
 
+typedef enum {
+    SWAlreadyRegisteredError,
+    SWHitMonthlyLimitError,
+    SWUnknownError
+} SWErrorType;
+
 @interface SWRequest : NSObject
 
 @property (nonatomic, strong) NSString *houseNumber, *direction, *streetName, *suffix, *fullAddress, *district, *serverDate, *confirmationNumber;

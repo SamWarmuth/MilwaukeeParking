@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Samuel Warmuth. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "SWCar.h"
-#import "SWRequest.h"
 #import <MapKit/MapKit.h>
+#import <UIKit/UIKit.h>
+#import "SWRequest.h"
+#import "SWCar.h"
 
 @interface SWRequestCompletedViewController : UIViewController
 
