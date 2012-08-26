@@ -13,6 +13,7 @@
 typedef enum {
     SWAlreadyRegisteredError,
     SWHitMonthlyLimitError,
+    SWUnpaidCitationsError,
     SWUnknownError
 } SWErrorType;
 

@@ -149,9 +149,7 @@
         [SVProgressHUD dismissWithError:@"Your current location isn't in Milwaukee. Move the map to choose a parking spot." afterDelay:3];
         return;
     }
-    
-    
-    
+
     self.userMovedMap = FALSE;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 400, 400);
     [self.mapView setRegion:region animated:YES];
@@ -172,6 +170,9 @@
         return;
     }
     
+    //stop updating map position, so address is fixed
+    self.userMovedMap = TRUE;
+
     self.request.nightCount = @(self.nightCountSegControl.selectedSegmentIndex + 1);
     self.request.date = [NSDate date];
     
@@ -218,6 +219,8 @@
                     [SVProgressHUD dismissWithError:@"Sorry, this license plate already has parking permission for tonight." afterDelay:5.0];
                 } else if (error && error.code == SWHitMonthlyLimitError){
                     [SVProgressHUD dismissWithError:@"Sorry, this license plate has already used 3 nights of parking this month." afterDelay:5.0];
+                } else if (error && error.code == SWUnpaidCitationsError){
+                    [SVProgressHUD dismissWithError:@"Sorry, this license plate has unpaid citations. Parking permission cannot be granted." afterDelay:5.0];
                 } else {
                     [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\n Please try again." afterDelay:5.0];
                 }

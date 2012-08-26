@@ -107,6 +107,14 @@
         return error;
     }
     
+    NSRange unpaidRange = [response rangeOfString: @"unpaid citations in excess"];
+    if (unpaidRange.location != NSNotFound){
+        error = [NSError errorWithDomain:@"SWError" code:SWUnpaidCitationsError userInfo:nil];
+        return error;
+    }
+    
+    
+    
     error = [NSError errorWithDomain:@"SWError" code:SWUnknownError userInfo:nil];
     return error;
 }
