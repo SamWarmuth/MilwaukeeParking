@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8873596715CC6C8D0087DD08"
                BuildableName = "Milwaukee Parking.app"
-               BlueprintName = "Milwaukee Parking"
-               ReferencedContainer = "container:Milwaukee Parking.xcodeproj">
+               BlueprintName = "nightparking"
+               ReferencedContainer = "container:nightparking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8873596715CC6C8D0087DD08"
             BuildableName = "Milwaukee Parking.app"
-            BlueprintName = "Milwaukee Parking"
-            ReferencedContainer = "container:Milwaukee Parking.xcodeproj">
+            BlueprintName = "nightparking"
+            ReferencedContainer = "container:nightparking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -47,14 +47,15 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8873596715CC6C8D0087DD08"
             BuildableName = "Milwaukee Parking.app"
-            BlueprintName = "Milwaukee Parking"
-            ReferencedContainer = "container:Milwaukee Parking.xcodeproj">
+            BlueprintName = "nightparking"
+            ReferencedContainer = "container:nightparking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +72,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8873596715CC6C8D0087DD08"
             BuildableName = "Milwaukee Parking.app"
-            BlueprintName = "Milwaukee Parking"
-            ReferencedContainer = "container:Milwaukee Parking.xcodeproj">
+            BlueprintName = "nightparking"
+            ReferencedContainer = "container:nightparking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

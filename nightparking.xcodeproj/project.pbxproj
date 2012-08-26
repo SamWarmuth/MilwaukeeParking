@@ -72,14 +72,14 @@
 		8825EA2415CCC6AE00CECB4D /* SWCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCar.h; sourceTree = "<group>"; };
 		8825EA2515CCC6AE00CECB4D /* SWCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCar.m; sourceTree = "<group>"; };
 		8825EA2B15CCD96500CECB4D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8873596815CC6C8D0087DD08 /* Milwaukee Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milwaukee Parking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8873596815CC6C8D0087DD08 /* nightparking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nightparking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8873596C15CC6C8D0087DD08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8873596E15CC6C8D0087DD08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8873597015CC6C8D0087DD08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8873597415CC6C8D0087DD08 /* Milwaukee Parking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Milwaukee Parking-Info.plist"; sourceTree = "<group>"; };
+		8873597415CC6C8D0087DD08 /* nightparking-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nightparking-Info.plist"; sourceTree = "<group>"; };
 		8873597615CC6C8D0087DD08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8873597815CC6C8D0087DD08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8873597A15CC6C8D0087DD08 /* Milwaukee Parking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Milwaukee Parking-Prefix.pch"; sourceTree = "<group>"; };
+		8873597A15CC6C8D0087DD08 /* nightparking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nightparking-Prefix.pch"; sourceTree = "<group>"; };
 		8873597B15CC6C8D0087DD08 /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
 		8873597C15CC6C8D0087DD08 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
 		8873597F15CC6C8D0087DD08 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		8873596915CC6C8D0087DD08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8873596815CC6C8D0087DD08 /* Milwaukee Parking.app */,
+				8873596815CC6C8D0087DD08 /* nightparking.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,10 +246,10 @@
 		8873597315CC6C8D0087DD08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8873597415CC6C8D0087DD08 /* Milwaukee Parking-Info.plist */,
+				8873597415CC6C8D0087DD08 /* nightparking-Info.plist */,
 				8873597515CC6C8D0087DD08 /* InfoPlist.strings */,
 				8873597815CC6C8D0087DD08 /* main.m */,
-				8873597A15CC6C8D0087DD08 /* Milwaukee Parking-Prefix.pch */,
+				8873597A15CC6C8D0087DD08 /* nightparking-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,9 +389,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8873596715CC6C8D0087DD08 /* Milwaukee Parking */ = {
+		8873596715CC6C8D0087DD08 /* nightparking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8873598615CC6C8D0087DD08 /* Build configuration list for PBXNativeTarget "Milwaukee Parking" */;
+			buildConfigurationList = 8873598615CC6C8D0087DD08 /* Build configuration list for PBXNativeTarget "nightparking" */;
 			buildPhases = (
 				8873596415CC6C8D0087DD08 /* Sources */,
 				8873596515CC6C8D0087DD08 /* Frameworks */,
@@ -401,9 +401,9 @@
 			);
 			dependencies = (
 			);
-			name = "Milwaukee Parking";
+			name = nightparking;
 			productName = "Milwaukee Parking";
-			productReference = 8873596815CC6C8D0087DD08 /* Milwaukee Parking.app */;
+			productReference = 8873596815CC6C8D0087DD08 /* nightparking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +416,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Samuel Warmuth";
 			};
-			buildConfigurationList = 8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "Milwaukee Parking" */;
+			buildConfigurationList = 8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "nightparking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -428,7 +428,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8873596715CC6C8D0087DD08 /* Milwaukee Parking */,
+				8873596715CC6C8D0087DD08 /* nightparking */,
 			);
 		};
 /* End PBXProject section */
@@ -577,15 +577,15 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Milwaukee Parking/Milwaukee Parking-Prefix.pch";
+				GCC_PREFIX_HEADER = "Milwaukee Parking/nightparking-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/libxml2,
 					"$(SDKROOT)/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "Milwaukee Parking/Milwaukee Parking-Info.plist";
+				INFOPLIST_FILE = "Milwaukee Parking/nightparking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nightparking;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -593,20 +593,24 @@
 		8873598815CC6C8D0087DD08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Samuel Warmuth";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samuel Warmuth";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Milwaukee Parking/Milwaukee Parking-Prefix.pch";
+				GCC_PREFIX_HEADER = "Milwaukee Parking/nightparking-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/libxml2,
 					"$(SDKROOT)/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "Milwaukee Parking/Milwaukee Parking-Info.plist";
+				INFOPLIST_FILE = "Milwaukee Parking/nightparking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nightparking;
+				PROVISIONING_PROFILE = "318B4B6A-6863-4AEA-9640-EA8657D70993";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "318B4B6A-6863-4AEA-9640-EA8657D70993";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -614,7 +618,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "Milwaukee Parking" */ = {
+		8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "nightparking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8873598415CC6C8D0087DD08 /* Debug */,
@@ -623,7 +627,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8873598615CC6C8D0087DD08 /* Build configuration list for PBXNativeTarget "Milwaukee Parking" */ = {
+		8873598615CC6C8D0087DD08 /* Build configuration list for PBXNativeTarget "nightparking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8873598715CC6C8D0087DD08 /* Debug */,
