@@ -31,6 +31,8 @@
 		887359A115CC765A0087DD08 /* SWChooseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359A015CC765A0087DD08 /* SWChooseCarViewController.m */; };
 		887359AB15CC7D940087DD08 /* SWNewCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AA15CC7D930087DD08 /* SWNewCarViewController.m */; };
 		887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */; };
+		88BB1E9D15EAC67D0087F848 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BB1E9C15EAC67D0087F848 /* Default.png */; };
+		88BB1E9F15EAC6800087F848 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BB1E9E15EAC6800087F848 /* Default@2x.png */; };
 		88D8FF5815E82DBC00140D5B /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */; };
 		88D8FF5915E82DBC00140D5B /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5715E82DBC00140D5B /* UIColor-Expanded.m */; };
 		88D8FF5D15E834BA00140D5B /* SWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5C15E834BA00140D5B /* SWSettingsViewController.m */; };
@@ -99,6 +101,8 @@
 		887359AA15CC7D930087DD08 /* SWNewCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNewCarViewController.m; sourceTree = "<group>"; };
 		887359AC15CC7F0C0087DD08 /* SWRequestCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestCompletedViewController.h; sourceTree = "<group>"; };
 		887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestCompletedViewController.m; sourceTree = "<group>"; };
+		88BB1E9C15EAC67D0087F848 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		88BB1E9E15EAC6800087F848 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		88D8FF5415E82DBC00140D5B /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
 		88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
 		88D8FF5615E82DBC00140D5B /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		8873595D15CC6C8D0087DD08 = {
 			isa = PBXGroup;
 			children = (
+				88BB1E9E15EAC6800087F848 /* Default@2x.png */,
+				88BB1E9C15EAC67D0087F848 /* Default.png */,
 				88EB1EB515D2E89B00C84263 /* parkingIcon@2x.png */,
 				88EB1EB315D2E89700C84263 /* parkingIcon.png */,
 				88EB1EB115D1CC4100C84263 /* icon.png */,
@@ -458,6 +464,8 @@
 				88EB1EB215D1CC4100C84263 /* icon.png in Resources */,
 				88EB1EB415D2E89800C84263 /* parkingIcon.png in Resources */,
 				88EB1EB615D2E89B00C84263 /* parkingIcon@2x.png in Resources */,
+				88BB1E9D15EAC67D0087F848 /* Default.png in Resources */,
+				88BB1E9F15EAC6800087F848 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
