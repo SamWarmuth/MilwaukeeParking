@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SWCar.h"
 #import <MapKit/MapKit.h>
+#import "SWCar.h"
 
 typedef enum {
     SWAlreadyRegisteredError,
@@ -23,9 +23,7 @@ typedef enum {
 @property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) NSNumber *nightCount;
 
-
 - (void)sendRequestWithCar:(SWCar *)car andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed;
-
 - (void)sendConfirmationWithIntitialResponse:(NSString *)responseHTML withParams:(NSMutableDictionary *)parameters andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed;
 
 @end

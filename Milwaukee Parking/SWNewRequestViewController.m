@@ -65,6 +65,17 @@
     if (self.userMovedMap) return;
     if (userLocation.coordinate.latitude == 0.0) return;
     
+    CLLocationDegrees lat = userLocation.coordinate.latitude;
+    CLLocationDegrees lng = userLocation.coordinate.longitude;
+    
+    if (lat > 43.25 || lat < 42.85 || lng > -87.52 || lng < -88.15){
+        //If innacurate, just ignore
+        if (userLocation.location.horizontalAccuracy > 100) return;
+        [SVProgressHUD show];
+        [SVProgressHUD dismissWithError:@"Your current location isn't in Milwaukee. Move the map to choose a parking spot." afterDelay:3.5];
+        return;
+    }
+    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400);
     [mapView setRegion:region animated:YES];
     [self updateAddress:userLocation.location];
@@ -128,10 +139,24 @@
         return;
     }
     
+    CLLocationDegrees lat = self.mapView.userLocation.coordinate.latitude;
+    CLLocationDegrees lng = self.mapView.userLocation.coordinate.longitude;
+    
+    if (lat > 43.25 || lat < 42.85 || lng > -87.52 || lng < -88.15){
+        //If innacurate, just ignore
+        if (self.mapView.userLocation.location.horizontalAccuracy > 100) return;
+        [SVProgressHUD show];
+        [SVProgressHUD dismissWithError:@"Your current location isn't in Milwaukee. Move the map to choose a parking spot." afterDelay:3];
+        return;
+    }
+    
+    
+    
     self.userMovedMap = FALSE;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 400, 400);
     [self.mapView setRegion:region animated:YES];
 }
+
 
 
 - (IBAction)tappedCancelButton:(id)sender
@@ -173,17 +198,14 @@
 
     if (alertView.tag == SWNewRequestAlertTag){
         if (!self.car.requests || self.car.requests == (id)[NSNull null]) self.car.requests = [NSMutableArray new];
-        [self.car.requests addObject:self.request];
-        
-        //save basic request, in case we crash or fail to confirm.
-        SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate saveCarsToDefaults];
         
         [SVProgressHUD showWithStatus:@"Requesting Parking Permission"];
         
         if ([self.car.licensePlateNumber isEqualToString:@"TESTING"]){
             [SVProgressHUD dismiss];
             self.request.confirmationNumber = @"1876543";
+            SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
+            [self.car.requests addObject:self.request];
             [appDelegate saveCarsToDefaults];
             [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
             return;
@@ -199,10 +221,10 @@
                 } else {
                     [SVProgressHUD dismissWithError:@"Sorry, your request wasn't successful.\n Please try again." afterDelay:5.0];
                 }
-                
             } else {
                 [SVProgressHUD dismiss];
-                //This request is now fully complete, save.
+                SWAppDelegate *appDelegate = (SWAppDelegate *)[[UIApplication sharedApplication] delegate];
+                [self.car.requests addObject:self.request];
                 [appDelegate saveCarsToDefaults];
                 [self performSegueWithIdentifier:@"SWNewRequestToRequestCompleted" sender:self];
             }
@@ -222,7 +244,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

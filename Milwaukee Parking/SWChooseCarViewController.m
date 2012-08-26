@@ -68,17 +68,14 @@
         MAConfirmButton *historyButton = [MAConfirmButton buttonWithTitle:@"History" confirm:nil];
         [historyButton setAnchor:CGPointMake(315.0, 9.0)];
         [historyButton addTarget:self action:@selector(historyPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [historyButton setTintColor:[UIColor darkGrayColor]];
-        
+        [historyButton setTintColor: [UIColor colorWithWhite:0.75 alpha:1]];
         [cell addSubview:historyButton];
     }
-
-    SWCar *car = [self.cars objectAtIndex:indexPath.row];
     
+    SWCar *car = [self.cars objectAtIndex:indexPath.row];
     if (car.nickname) cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", car.nickname, car.licensePlateNumber];
     else cell.textLabel.text = car.licensePlateNumber;
     
-
     return cell;
 }
 
@@ -111,9 +108,6 @@
         SWCarHistoryViewController *destinationController = [segue destinationViewController];
         destinationController.car = sender;
     }
-
-            
-
 }
 
 - (void)viewDidUnload

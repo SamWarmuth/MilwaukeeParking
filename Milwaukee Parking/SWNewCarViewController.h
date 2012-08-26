@@ -10,14 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "SWCar.h"
 
-@interface SWNewCarViewController : UIViewController <UITextFieldDelegate>
+@interface SWNewCarViewController : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, strong) SWCar *car;
-
 @property (nonatomic, strong) IBOutlet UITextField *nicknameField, *licensePlateField;
 @property (nonatomic, strong) IBOutlet UIButton *stateButton;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *vehicleTypeSegControl;
-
+@property (nonatomic, strong) UIPickerView *statePicker;
+@property (nonatomic, strong) NSArray *states;
 
 - (IBAction)tappedStateButton:(id)sender;
 - (IBAction)tappedDoneButton:(id)sender;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SWSettingsViewController : UITableViewController
+@interface SWSettingsViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *emailField;
 @property (nonatomic, strong) IBOutlet UISwitch *emailSwitch;

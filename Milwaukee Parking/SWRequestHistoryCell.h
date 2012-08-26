@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SWRequestHistoryCell : UITableViewCell
+
 @property (nonatomic, strong) IBOutlet UILabel *addressLabel, *nightsLabel, *confirmationLabel;
 
 @end

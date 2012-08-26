@@ -101,6 +101,8 @@
     streetName = [streetName stringByReplacingOccurrencesOfString:@" AVE" withString:@" AV"];
     streetName = [streetName stringByReplacingOccurrencesOfString:@" BLVD" withString:@" BL"];
     streetName = [streetName stringByReplacingOccurrencesOfString:@" SAINT " withString:@" ST "];
+    streetName = [streetName stringByReplacingOccurrencesOfString:@" ADJ" withString:@""];
+
     
     NSDictionary *match;
     

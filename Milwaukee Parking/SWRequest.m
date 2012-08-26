@@ -6,12 +6,11 @@
 //  Copyright (c) 2012 Samuel Warmuth. All rights reserved.
 //
 
-#import "SWRequest.h"
 #import "AFNetworking.h"
 #import "HTMLParser.h"
+#import "SWRequest.h"
 
 @implementation SWRequest
-
 
 - (void)sendRequestWithCar:(SWCar *)car andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed
 {
@@ -25,6 +24,12 @@
     [parameters setObject:car.stateAbbreviation         forKey:@"state"];
     [parameters setObject:car.licensePlateNumber        forKey:@"tagID"];
     [parameters setObject:car.vehicleType               forKey:@"vType"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults boolForKey:@"SWSendEmailConfirmation"] && [defaults objectForKey:@"SWEmail"] && [[defaults objectForKey:@"SWEmail"] length] != 0){
+        [parameters setObject:[defaults objectForKey:@"SWEmail"] forKey:@"email"];
+    }
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/np_permission"]];
     [httpClient postPath:@"" parameters:parameters success:^(AFHTTPRequestOperation *request, id rawResponseData) {
@@ -42,10 +47,15 @@
 
 - (void)sendConfirmationWithIntitialResponse:(NSString *)responseHTML withParams:(NSMutableDictionary *)parameters andCompletionBlock:(void (^)(NSError *error, NSString *confirmationCode))completed
 {
-    //laddr changes into houseNum
+    //laddr changes into houseNum, email into emailaddr
     [parameters setObject:[parameters objectForKey:@"laddr"] forKey:@"houseNum"];
     [parameters removeObjectForKey:@"laddr"];
 
+    if ([parameters objectForKey:@"email"]) {
+        [parameters setObject:[parameters objectForKey:@"email"] forKey:@"emailaddr"];
+        [parameters removeObjectForKey:@"email"];
+    }
+    
     NSError *error;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:responseHTML error:&error];
     if (error) {
@@ -55,7 +65,7 @@
     HTMLNode *bodyNode = [parser body];
     HTMLNode *form = [bodyNode findChildWithAttribute:@"id" matchingName:@"nConf" allowPartial:FALSE];
     self.serverDate = [[form findChildWithAttribute:@"name" matchingName:@"rdate" allowPartial:FALSE] getAttributeNamed:@"value"];
-    self.district = [[form findChildWithAttribute:@"name" matchingName:@"dist" allowPartial:FALSE] getAttributeNamed:@"value"];
+    self.district =   [[form findChildWithAttribute:@"name" matchingName:@"dist" allowPartial:FALSE]  getAttributeNamed:@"value"];
     
     [parameters setObject:self.serverDate forKey:@"rdate"];
     [parameters setObject:self.district forKey:@"dist"];
@@ -70,10 +80,10 @@
             NSLog(@"ERR:%@", error);
             NSLog(@"Error, request wasn't successful.");
             completed(error, nil);
-            return;
+        } else {
+            self.confirmationNumber = [request.responseString substringWithRange:[match rangeAtIndex:1]];
+            completed(nil, self.confirmationNumber);
         }
-        self.confirmationNumber = [request.responseString substringWithRange:[match rangeAtIndex:1]];
-        completed(nil, self.confirmationNumber);
     } failure:^(AFHTTPRequestOperation *request, NSError *error) {
         NSLog(@"REQ: %@", request);
         NSLog(@"ERR: %@", error);
@@ -114,7 +124,6 @@
     [encoder encodeObject:self.location forKey:@"location"];
     [encoder encodeObject:self.nightCount forKey:@"nightCount"];
     [encoder encodeObject:self.date forKey:@"date"];
-
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -131,7 +140,6 @@
         self.location = [decoder decodeObjectForKey:@"location"];
         self.nightCount = [decoder decodeObjectForKey:@"nightCount"];
         self.date = [decoder decodeObjectForKey:@"date"];
-
     }
     return self;
 }

@@ -26,7 +26,6 @@
     [encoder encodeObject:self.stateAbbreviation forKey:@"stateAbbreviation"];
     [encoder encodeObject:self.vehicleType forKey:@"vehicleType"];
     [encoder encodeObject:self.requests forKey:@"requests"];
-
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {

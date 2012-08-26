@@ -26,8 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationItem.hidesBackButton = TRUE;
@@ -55,10 +55,12 @@
     [self.mapView setRegion:region animated:NO];
     
 }
+
 - (IBAction)tappedDoneButton:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
