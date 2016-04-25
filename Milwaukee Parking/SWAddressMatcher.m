@@ -37,43 +37,7 @@
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/street_picker"]];
     [httpClient getPath:@"" parameters:nil success:^(AFHTTPRequestOperation *request, id rawResponseData) {
-        //NSDictionary *response = [NSJSONSerialization JSONObjectWithData:rawResponseData options:kNilOptions error:nil];
-        //NSLog(@"RESPO: %@", request.responseString);
-        
-        
-        NSError *error;
-        HTMLParser *parser = [[HTMLParser alloc] initWithString:request.responseString error:&error];
-        if (error) {
-            NSLog(@"Error: %@", error);
-            return;
-        }
-        HTMLNode *bodyNode = [parser body];
-        
-        
-        NSMutableArray *addresses = [NSMutableArray new];
-        
-        NSArray *inputNodes = [bodyNode findChildTags:@"a"];
-        for (HTMLNode *inputNode in inputNodes) {
-            NSMutableDictionary *components = [NSMutableDictionary new];
-            NSString *href = [inputNode getAttributeNamed:@"href"];
-            
-            //NSLog(@"href: '%@'", href);
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".*\\(\"(.*)\", \"(.*)\", \"(.*)\"\\);" options:0 error:NULL];
-            NSTextCheckingResult *match = [regex firstMatchInString:href options:0 range:NSMakeRange(0, [href length])];
-            
-            if (!match || match == (id)[NSNull null]) continue;
-            
-            NSString *fullName = [[inputNode.contents uppercaseString]  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                
-            [components setObject:fullName forKey:@"full"];
-            [components setObject:[href substringWithRange:[match rangeAtIndex:1]] forKey:@"direction"];
-            [components setObject:[href substringWithRange:[match rangeAtIndex:2]] forKey:@"street"];
-            [components setObject:[href substringWithRange:[match rangeAtIndex:3]] forKey:@"suffix"];
-            
-            //NSLog(@"node: %@", components);
-            
-            [addresses addObject:components];
-        }
+        NSArray *addresses = [self parseAddresses:request.responseString];
         NSLog(@"Street data refreshed.");
         SWAddressMatcher *sharedInstance = [self sharedInstance];
         sharedInstance.addresses = addresses;
@@ -87,6 +51,22 @@
         NSLog(@"REQ: %@", request);
         NSLog(@"ERR: %@", error);
     }];
+}
+
++ (NSArray *)parseAddresses:(NSString *)body
+{
+    NSMutableArray *addresses = [NSMutableArray new];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"selectStreet\\('(\\w*)', '(\\w*)', '(\\w*)'" options:0 error:NULL];
+    NSArray *matches = [regex matchesInString:body options:0 range:NSMakeRange(0, body.length)];
+    for (NSTextCheckingResult *match in matches) {
+        NSString *direction = [body substringWithRange:[match rangeAtIndex:1]];
+        NSString *street = [body substringWithRange:[match rangeAtIndex:2]];
+        NSString *suffix = [body substringWithRange:[match rangeAtIndex:3]];
+        NSString *full = [@[direction, street, suffix] componentsJoinedByString:@" "];
+        [addresses addObject:@{@"full": full, @"direction": direction, @"street": street, @"suffix": suffix}];
+    }
+
+    return addresses;
 }
 
 + (NSDictionary *)findMatchingStreetComponents:(NSString *)streetName

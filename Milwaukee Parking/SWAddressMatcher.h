@@ -11,7 +11,7 @@
 @interface SWAddressMatcher : NSObject
 
 //addresses is an array of dictionarys that look like this: {:full => "N Cass St", :direction => "N", :street => "Cass", :suffix => "St"}
-@property (nonatomic, strong) NSMutableArray *addresses;
+@property (nonatomic, strong) NSArray *addresses;
 
 + (SWAddressMatcher *)sharedInstance;
 + (void)loadStreetsFromServer;

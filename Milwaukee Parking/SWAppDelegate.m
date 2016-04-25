@@ -10,12 +10,17 @@
 #import "SWAddressMatcher.h"
 #import <MapKit/MapKit.h>
 
+@interface SWAppDelegate ()
+@property(nonatomic, strong) CLLocationManager *locationManager;
+
+@end
 
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[CLLocationManager new] requestWhenInUseAuthorization];
+    self.locationManager = [CLLocationManager new];
+    [self.locationManager requestWhenInUseAuthorization];
     [self loadCars];
     [SWAddressMatcher loadStreetsFromServer];
     return YES;

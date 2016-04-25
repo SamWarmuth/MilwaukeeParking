@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.emailSwitch.on = [defaults boolForKey:@"SWSendEmailConfirmation"];
     self.emailField.text = (NSString *)[defaults objectForKey:@"SWEmail"];

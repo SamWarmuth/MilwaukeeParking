@@ -15,6 +15,8 @@
 @interface SWNewRequestViewController : UIViewController <MKMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) IBOutlet UIView *pin;
+
 @property (nonatomic, strong) IBOutlet UILabel *carNameLabel, *addressLabel;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *nightCountSegControl;
 

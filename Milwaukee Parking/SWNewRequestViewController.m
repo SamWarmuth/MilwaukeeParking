@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[CLLocationManager new] requestWhenInUseAuthorization];
 
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(userUpdatedMap)];
     panGesture.delegate = self;
@@ -46,10 +47,31 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.pin.alpha = 0.0;
+    
     if (self.car.nickname) self.carNameLabel.text = [NSString stringWithFormat:@"%@ (%@)", self.car.nickname, self.car.licensePlateNumber];
     else self.carNameLabel.text = self.car.licensePlateNumber;
     
     self.userMovedMap = FALSE;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self updatePinLocation];
+    [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.pin.alpha = 1.0;
+    } completion:NULL];
+}
+
+- (void)updatePinLocation
+{
+    CGFloat mapCenterX = CGRectGetMidX(self.mapView.frame);
+    CGFloat mapCenterY = CGRectGetMidY(self.mapView.frame);
+    CGRect pinFrame = self.pin.frame;
+    pinFrame.origin.x = mapCenterX - pinFrame.size.width/2.0;
+    pinFrame.origin.y = mapCenterY - pinFrame.size.height;
+    self.pin.frame = pinFrame;
 }
 
 - (void)userUpdatedMap
@@ -113,7 +135,7 @@
         NSDictionary *components = [SWAddressMatcher findMatchingStreetComponents:placemark.thoroughfare];
         
         if (!components){
-            self.addressLabel.text = @"Not a valid address.";
+            self.addressLabel.text = @"Not a valid Milwaukee address.";
             self.request.location = nil;
             NSLog(@"Error: %@", placemark.thoroughfare);
             return;

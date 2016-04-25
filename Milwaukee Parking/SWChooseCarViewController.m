@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,7 +66,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         MAConfirmButton *historyButton = [MAConfirmButton buttonWithTitle:@"History" confirm:nil];
-        [historyButton setAnchor:CGPointMake(315.0, 9.0)];
+        historyButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        [historyButton setAnchor:CGPointMake(310.0, 9.0)];
         [historyButton addTarget:self action:@selector(historyPressed:) forControlEvents:UIControlEventTouchUpInside];
         [historyButton setTintColor: [UIColor colorWithWhite:0.75 alpha:1]];
         [cell addSubview:historyButton];

@@ -73,7 +73,7 @@
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://mpw.milwaukee.gov/services/np_confirmation"]];
     [httpClient postPath:@"" parameters:parameters success:^(AFHTTPRequestOperation *request, id rawResponseData) {
         NSLog(@"RESPO: %@", request.responseString);
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<b>(\\d{7})<\\/b>" options:0 error:NULL];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<strong>(\\d+)<\\/strong>" options:0 error:NULL];
         NSTextCheckingResult *match = [regex firstMatchInString:request.responseString options:0 range:NSMakeRange(0, [request.responseString length])];
         if (!match || match == (id)[NSNull null]){
             NSError *error = [self findErrorInResponse:request.responseString];

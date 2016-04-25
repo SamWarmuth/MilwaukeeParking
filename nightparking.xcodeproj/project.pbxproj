@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BC49E9C1CCE9F6300726B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC49E9B1CCE9F6300726B57 /* LaunchScreen.storyboard */; };
 		88111C1C15D4629E0073B536 /* SWRequestHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88111C1B15D4629E0073B536 /* SWRequestHistoryCell.m */; };
 		8825EA2115CCC5AD00CECB4D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8825EA1E15CCC5AD00CECB4D /* SVProgressHUD.bundle */; };
 		8825EA2215CCC5AD00CECB4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825EA2015CCC5AD00CECB4D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BC49E9B1CCE9F6300726B57 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88111C1A15D4629E0073B536 /* SWRequestHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRequestHistoryCell.h; sourceTree = "<group>"; };
 		88111C1B15D4629E0073B536 /* SWRequestHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestHistoryCell.m; sourceTree = "<group>"; };
 		8825EA1E15CCC5AD00CECB4D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				8825EA1B15CCC5A600CECB4D /* External */,
 				8873599215CC6E7D0087DD08 /* Images */,
 				8873597315CC6C8D0087DD08 /* Supporting Files */,
+				5BC49E9B1CCE9F6300726B57 /* LaunchScreen.storyboard */,
 			);
 			path = "Milwaukee Parking";
 			sourceTree = "<group>";
@@ -395,7 +398,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SW;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Samuel Warmuth";
 			};
 			buildConfigurationList = 8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "nightparking" */;
@@ -423,6 +426,7 @@
 				8873597715CC6C8D0087DD08 /* InfoPlist.strings in Resources */,
 				8873598015CC6C8D0087DD08 /* MainStoryboard.storyboard in Resources */,
 				8873599B15CC6E860087DD08 /* location.png in Resources */,
+				5BC49E9C1CCE9F6300726B57 /* LaunchScreen.storyboard in Resources */,
 				8873599C15CC6E860087DD08 /* location@2x.png in Resources */,
 				8825EA2115CCC5AD00CECB4D /* SVProgressHUD.bundle in Resources */,
 				88EB1EAC15D1C3E200C84263 /* redPin.png in Resources */,
@@ -509,11 +513,14 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -527,8 +534,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -546,10 +554,12 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Samuel Warmuth (9DBL389UL8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samuel Warmuth (9DBL389UL8)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -557,8 +567,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "cf42a699-118c-4b66-bdf4-1709f37df218";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -582,6 +593,7 @@
 				INFOPLIST_FILE = "Milwaukee Parking/nightparking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samwarmuth.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = nightparking;
 				WRAPPER_EXTENSION = app;
 			};
@@ -607,9 +619,10 @@
 				INFOPLIST_FILE = "Milwaukee Parking/nightparking-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samwarmuth.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = nightparking;
-				PROVISIONING_PROFILE = "318B4B6A-6863-4AEA-9640-EA8657D70993";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "318B4B6A-6863-4AEA-9640-EA8657D70993";
+				PROVISIONING_PROFILE = "cf42a699-118c-4b66-bdf4-1709f37df218";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cf42a699-118c-4b66-bdf4-1709f37df218";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
