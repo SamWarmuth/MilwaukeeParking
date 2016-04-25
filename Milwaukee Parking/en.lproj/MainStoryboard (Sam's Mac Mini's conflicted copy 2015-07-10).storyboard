@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" promptedForUpgradeToXcode5="NO" initialViewController="Rs1-eJ-uGF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Rs1-eJ-uGF">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
-        <!--Choose Car-->
+        <!--Choose Car View Controller - Choose Car-->
         <scene sceneID="ang-4L-AEU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISB-Aw-14e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HO6-Gj-W7c" customClass="SWChooseCarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uyJ-kf-3MD">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -26,7 +26,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Choose Car" id="VgG-wq-HRu">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="upV-Bq-rg8">
                             <connections>
@@ -46,13 +45,13 @@
                         <segue destination="464-Ck-zD4" kind="push" identifier="SWChooseCarToHistory" id="zec-Th-YFp"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ISB-Aw-14e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-82" y="746"/>
         </scene>
-        <!--Car Name-->
+        <!--Car History View Controller - Car Name-->
         <scene sceneID="DIY-mR-XWz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hwQ-pS-4zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="464-Ck-zD4" customClass="SWCarHistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zog-T1-wXT">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -131,19 +130,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Car Name" id="etH-dc-L2j"/>
                     <connections>
                         <outlet property="tv" destination="GFX-9X-fMk" id="gwW-FW-ytN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hwQ-pS-4zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="802" y="746"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="lcH-2v-zrc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UlG-t9-Aur" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="v5D-Gv-ueD" customClass="SWSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="uyx-5z-8Pn">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -208,14 +206,14 @@
                         <outlet property="emailSwitch" destination="fNy-Ti-bsa" id="FFc-hK-7gN"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UlG-t9-Aur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1334" y="1521"/>
         </scene>
-        <!--New Car-->
+        <!--New Car View Controller - New Car-->
         <scene sceneID="oUL-PY-s1g">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="tXt-ix-sey" customClass="SWNewCarViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frp-xA-TeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="tXt-ix-sey" customClass="SWNewCarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRu-hT-oLm">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -264,7 +262,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Wisconsin">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -293,7 +291,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="New Car" id="WBi-up-BJM">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="56c-Nf-2mp">
                             <connections>
@@ -309,13 +306,13 @@
                         <segue destination="2" kind="push" identifier="SWNewCarToNewRequest" id="HTe-c5-Wqr"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="frp-xA-TeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410" y="115"/>
         </scene>
-        <!--New Request-->
+        <!--New Request View Controller - New Request-->
         <scene sceneID="5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="SWNewRequestViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -401,7 +398,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="New Request" id="VZa-O7-t0x">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lmb-gd-CHP">
                             <connections>
@@ -422,16 +418,16 @@
                         <segue destination="kzY-9M-3fk" kind="push" identifier="SWNewRequestToRequestCompleted" id="T5v-Wj-Yiw"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1258" y="115"/>
         </scene>
-        <!--Request Granted-->
+        <!--Request Completed View Controller - Request Granted-->
         <scene sceneID="1dF-ZM-6qm">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uV3-yD-6ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="kzY-9M-3fk" customClass="SWRequestCompletedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yVo-P3-hWU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmation Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rev-N3-VSk">
@@ -502,7 +498,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Request Granted" id="hP9-RG-tHf">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="7fG-jT-qbt">
                             <connections>
@@ -518,15 +513,14 @@
                         <outlet property="mapView" destination="DfU-Wl-k7e" id="3AV-FK-JGQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uV3-yD-6ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1774" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h5M-rP-YTN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Yb-SH-CNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Rs1-eJ-uGF" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LrT-Ny-vxp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -537,15 +531,14 @@
                         <segue destination="HO6-Gj-W7c" kind="relationship" relationship="rootViewController" id="hGd-CM-mE8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Yb-SH-CNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-608" y="746"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BCL-mO-m0i">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oUB-5S-xwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="CHT-5r-tP2" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oke-uM-3rR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -556,7 +549,6 @@
                         <segue destination="v5D-Gv-ueD" kind="relationship" relationship="rootViewController" id="Efd-Ak-eab"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oUB-5S-xwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="808" y="1521"/>
         </scene>
@@ -565,12 +557,79 @@
         <image name="location.png" width="20" height="20"/>
         <image name="redPin.png" width="44" height="69"/>
     </resources>
+    <classes>
+        <class className="SWCarHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWCarHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SWChooseCarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWChooseCarViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SWNewCarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWNewCarViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedDoneButton:"/>
+                <relationship kind="action" name="tappedStateButton:"/>
+                <relationship kind="outlet" name="licensePlateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nicknameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="stateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="vehicleTypeSegControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SWNewRequestViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWNewRequestViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedCancelButton:"/>
+                <relationship kind="action" name="tappedCenterOnUser:"/>
+                <relationship kind="action" name="tappedRequestButton:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="carNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="nightCountSegControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SWRequestCompletedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRequestCompletedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedDoneButton:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="carNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="confirmationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="numNightsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SWRequestHistoryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRequestHistoryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="confirmationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nightsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SWSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="v0q-cC-yaq"/>
+        <segue reference="HTe-c5-Wqr"/>
     </inferredMetricsTieBreakers>
 </document>

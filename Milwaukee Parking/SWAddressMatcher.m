@@ -91,9 +91,7 @@
 
 + (NSDictionary *)findMatchingStreetComponents:(NSString *)streetName
 {
-
     SWAddressMatcher *sharedInstance = [self sharedInstance];
-    
     if (!sharedInstance.addresses) return nil;
     
     streetName = [streetName uppercaseString];
@@ -102,23 +100,16 @@
     streetName = [streetName stringByReplacingOccurrencesOfString:@" BLVD" withString:@" BL"];
     streetName = [streetName stringByReplacingOccurrencesOfString:@" SAINT " withString:@" ST "];
     streetName = [streetName stringByReplacingOccurrencesOfString:@" ADJ" withString:@""];
-
     
     NSDictionary *match;
     
     for (NSDictionary *address in sharedInstance.addresses) {
-        // note the modified weighting, this ends up working similiar to Alfred / TextMate searching method
-        // TextMate takes into account camelcase while matching and is a little smarter, but you get the idea
-        //NSLog(@"%@ vs %@", [address objectForKey:@"full"], streetName);
         if ([(NSString *)[address objectForKey:@"full"] isEqualToString:streetName]){
             match = address;
             break;
         }
     }
 
-    //NSLog(@"%@", match);
-    
-    
     return match;
 }
 

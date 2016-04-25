@@ -29,7 +29,6 @@
 		887359AE15CC7F0C0087DD08 /* SWRequestCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */; };
 		88BB1E9D15EAC67D0087F848 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BB1E9C15EAC67D0087F848 /* Default.png */; };
 		88BB1E9F15EAC6800087F848 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BB1E9E15EAC6800087F848 /* Default@2x.png */; };
-		88D5199317C54619006135E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D5199217C54619006135E0 /* Images.xcassets */; };
 		88D8FF5815E82DBC00140D5B /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */; };
 		88D8FF5915E82DBC00140D5B /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5715E82DBC00140D5B /* UIColor-Expanded.m */; };
 		88D8FF5D15E834BA00140D5B /* SWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8FF5C15E834BA00140D5B /* SWSettingsViewController.m */; };
@@ -91,7 +90,6 @@
 		887359AD15CC7F0C0087DD08 /* SWRequestCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRequestCompletedViewController.m; sourceTree = "<group>"; };
 		88BB1E9C15EAC67D0087F848 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		88BB1E9E15EAC6800087F848 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		88D5199217C54619006135E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = nightparking/Images.xcassets; sourceTree = "<group>"; };
 		88D8FF5415E82DBC00140D5B /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
 		88D8FF5515E82DBC00140D5B /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
 		88D8FF5615E82DBC00140D5B /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		8873595D15CC6C8D0087DD08 = {
 			isa = PBXGroup;
 			children = (
-				88D5199217C54619006135E0 /* Images.xcassets */,
 				88BB1E9E15EAC6800087F848 /* Default@2x.png */,
 				88BB1E9C15EAC67D0087F848 /* Default.png */,
 				88EB1EB515D2E89B00C84263 /* parkingIcon@2x.png */,
@@ -395,7 +392,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SW;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Samuel Warmuth";
 			};
 			buildConfigurationList = 8873596215CC6C8D0087DD08 /* Build configuration list for PBXProject "nightparking" */;
@@ -429,7 +426,6 @@
 				88EB1EAD15D1C3E200C84263 /* redPin@2x.png in Resources */,
 				88EB1EB015D1CC3F00C84263 /* icon@2x.png in Resources */,
 				88EB1EB215D1CC4100C84263 /* icon.png in Resources */,
-				88D5199317C54619006135E0 /* Images.xcassets in Resources */,
 				88EB1EB415D2E89800C84263 /* parkingIcon.png in Resources */,
 				88EB1EB615D2E89B00C84263 /* parkingIcon@2x.png in Resources */,
 				88BB1E9D15EAC67D0087F848 /* Default.png in Resources */,
@@ -500,18 +496,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -521,14 +511,10 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -537,25 +523,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -567,8 +544,6 @@
 		8873598715CC6C8D0087DD08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -590,8 +565,6 @@
 		8873598815CC6C8D0087DD08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Samuel Warmuth";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samuel Warmuth";
 				FRAMEWORK_SEARCH_PATHS = (
